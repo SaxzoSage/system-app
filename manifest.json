@@ -2,7 +2,8 @@
   "name": "SYSTEM // SAKSHAM",
   "short_name": "SYSTEM",
   "description": "Solo Leveling inspired personal progress tracker",
-  "start_url": "/index.html",
+  "start_url": "/system-app/",
+  "scope": "/system-app/"
   "display": "standalone",
   "background_color": "#0a0a0a",
   "theme_color": "#0a0a0a",
