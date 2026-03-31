@@ -761,6 +761,14 @@ window.addEventListener('load',()=>{
   setupPinch();
   setTimeout(()=>{document.getElementById('bootScreen').classList.add('hidden');setTimeout(()=>document.getElementById('bootScreen').remove(),800);},2200);
 });
+  
+// SERVICE WORKER REGISTER
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/system-app/service-worker.js")
+    .then(() => console.log("Service Worker Registered"))
+    .catch((err) => console.log("SW failed:", err));
+}
 </script>
 </body>
 </html>
