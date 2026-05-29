@@ -16,6 +16,7 @@
       --green:#22c55e; --green-bright:#4ade80; --green-dim:#166534; --green-glow:rgba(34,197,94,0.3);
       --black:#07050f; --dark:#0e0b18; --dark2:#130e22; --dark3:#1c1530;
       --text:#e8e0f8; --text-dim:#6b5f88; --red:#f87171; --red-glow:rgba(248,113,113,0.4);
+      --cyan:#00d4ff; --cyan-glow:rgba(0,212,255,0.4);
       --border:rgba(155,89,245,0.18); --border-gold:rgba(201,168,76,0.25);
     }
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
@@ -24,22 +25,27 @@
     #app{position:relative;z-index:1;max-width:430px;margin:0 auto;min-height:100vh;padding-bottom:80px;}
 
     /* HEADER */
-    .header{padding:16px 20px 10px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(124,58,237,0.1) 0%,transparent 100%);position:sticky;top:0;z-index:50;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);}
-    .header-top{display:flex;justify-content:space-between;align-items:center;}
-    .system-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--purple-mid);letter-spacing:3px;}
-    .player-name{font-family:'Cinzel',serif;font-size:20px;font-weight:900;background:linear-gradient(130deg,var(--purple-bright) 0%,var(--gold-bright) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(155,89,245,0.5));letter-spacing:3px;}
-    .level-badge{background:linear-gradient(135deg,var(--purple-dim),var(--purple-mid));color:var(--purple-bright);font-family:'Cinzel',serif;font-size:11px;font-weight:900;padding:4px 10px;border-radius:2px;letter-spacing:1px;box-shadow:0 0 12px var(--purple-glow);border:1px solid rgba(155,89,245,0.3);}
-    .xp-row{margin-top:8px;display:flex;align-items:center;gap:10px;}
+    .header{padding:12px 16px 8px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(124,58,237,0.1) 0%,transparent 100%);position:sticky;top:0;z-index:50;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);}
+    .header-top{display:flex;justify-content:space-between;align-items:flex-start;}
+    .system-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--purple-mid);letter-spacing:3px;}
+    .player-name{font-family:'Cinzel',serif;font-size:18px;font-weight:900;background:linear-gradient(130deg,var(--purple-bright) 0%,var(--gold-bright) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(155,89,245,0.5));letter-spacing:3px;}
+    .active-title-lbl{font-size:10px;color:var(--cyan);letter-spacing:1px;margin-top:1px;font-family:'Share Tech Mono',monospace;}
+    .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+    .rank-badge{font-family:'Cinzel',serif;font-size:11px;font-weight:900;padding:3px 9px;border:1px solid var(--purple);border-radius:2px;color:var(--purple-bright);box-shadow:0 0 10px var(--purple-glow);letter-spacing:1px;text-align:center;min-width:54px;}
+    .level-badge{background:linear-gradient(135deg,var(--purple-dim),var(--purple-mid));color:var(--purple-bright);font-family:'Cinzel',serif;font-size:10px;font-weight:900;padding:3px 8px;border-radius:2px;letter-spacing:1px;box-shadow:0 0 10px var(--purple-glow);border:1px solid rgba(155,89,245,0.3);}
+    .xp-row{margin-top:7px;display:flex;align-items:center;gap:10px;}
     .xp-label{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--purple-mid);letter-spacing:2px;min-width:24px;}
     .xp-bar-wrap{flex:1;height:5px;background:var(--dark3);overflow:hidden;border:1px solid var(--border);}
     .xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--purple-dim),var(--purple),var(--gold-bright));transition:width 1s cubic-bezier(0.4,0,0.2,1);position:relative;}
     .xp-bar-fill::after{content:'';position:absolute;right:0;top:0;bottom:0;width:4px;background:white;filter:blur(2px);animation:pulseR 1.5s ease-in-out infinite;}
     @keyframes pulseR{0%,100%{opacity:0.4}50%{opacity:1}}
     .xp-count{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gold);min-width:64px;text-align:right;}
+    .header-sub{display:flex;gap:12px;margin-top:6px;align-items:center;}
+    .hstat{font-family:'Share Tech Mono',monospace;font-size:10px;}
 
     /* TABS */
-    .tabs{display:flex;border-bottom:1px solid var(--border);background:var(--dark);position:sticky;top:78px;z-index:40;}
-    .tab{flex:1;padding:10px 2px;text-align:center;font-family:'Cinzel',serif;font-size:9px;font-weight:600;color:var(--text-dim);letter-spacing:1px;border-bottom:2px solid transparent;transition:all 0.3s;cursor:pointer;}
+    .tabs{display:flex;border-bottom:1px solid var(--border);background:var(--dark);position:sticky;top:95px;z-index:40;}
+    .tab{flex:1;padding:8px 1px;text-align:center;font-family:'Cinzel',serif;font-size:8px;font-weight:600;color:var(--text-dim);letter-spacing:0.5px;border-bottom:2px solid transparent;transition:all 0.3s;cursor:pointer;}
     .tab.active{color:var(--purple-bright);border-bottom-color:var(--purple);background:rgba(155,89,245,0.05);}
 
     /* SCREENS */
@@ -52,6 +58,8 @@
     .st::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
     .st.g{color:var(--gold-dim);}
     .st.g::after{background:linear-gradient(90deg,var(--border-gold),transparent);}
+    .st.c{color:var(--cyan);opacity:0.7;}
+    .st.c::after{background:linear-gradient(90deg,rgba(0,212,255,0.2),transparent);}
 
     /* STATS */
     .stats-grid{display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
@@ -66,9 +74,7 @@
     .pb{background:linear-gradient(90deg,var(--purple-dim),var(--purple-bright));}
     .gb{background:linear-gradient(90deg,var(--gold-dim),var(--gold-bright));}
 
-    /* ═══════════════════════════════════
-       WEEKLY STREAK (7 days Mon-Sun)
-    ═══════════════════════════════════ */
+    /* WEEKLY STREAK */
     .streak-block{background:var(--dark2);border:1px solid var(--border);padding:12px;margin-bottom:18px;position:relative;overflow:hidden;}
     .streak-block::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);}
     .streak-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
@@ -84,15 +90,11 @@
     .day-box.done .day-ck{color:var(--purple-bright);}
     .day-box.done .day-nm{color:var(--purple-mid);}
 
-    /* ═══════════════════════════════════
-       CALENDAR — MONTH VIEW (default)
-    ═══════════════════════════════════ */
+    /* CALENDAR */
     .cal-container{margin-bottom:18px;position:relative;}
     .cal-view-toggle{display:flex;gap:6px;margin-bottom:8px;align-items:center;}
     .cal-view-btn{font-family:'Share Tech Mono',monospace;font-size:8px;padding:3px 8px;border:1px solid var(--border);background:var(--dark3);color:var(--text-dim);cursor:pointer;border-radius:2px;transition:all 0.2s;letter-spacing:1px;}
     .cal-view-btn.active{border-color:var(--green);color:var(--green-bright);background:rgba(34,197,94,0.08);}
-
-    /* MONTH VIEW */
     .cal-month-view{background:var(--dark2);border:1px solid var(--border);padding:12px;position:relative;overflow:hidden;}
     .cal-month-view::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),var(--gold),transparent);}
     .cal-mheader{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
@@ -113,8 +115,6 @@
     .cal-legend{display:flex;align-items:center;gap:4px;margin-top:8px;justify-content:flex-end;}
     .cal-leg-lbl{font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--text-dim);}
     .cal-leg-dot{width:9px;height:9px;border-radius:2px;}
-
-    /* YEAR VIEW */
     .cal-year-view{display:none;}
     .cal-year-view.active{display:block;}
     .cal-month-view.hidden{display:none;}
@@ -130,7 +130,7 @@
     .mini-cell.ml4{background:var(--green);}
     .mini-cell.empty{background:transparent;}
 
-    /* QUESTS */
+    /* QUESTS (existing) */
     .quest-card{background:var(--dark2);border:1px solid var(--border);padding:13px;margin-bottom:9px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.2s;}
     .quest-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--purple);}
     .quest-card.done::before{background:var(--green);}
@@ -143,6 +143,20 @@
     .quest-check{width:18px;height:18px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;transition:all 0.2s;}
     .quest-card.done .quest-check{background:var(--green);border-color:var(--green);color:var(--black);}
     .boss-tag{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--gold);letter-spacing:2px;margin-bottom:5px;}
+
+    /* MULTIPLIER BANNER */
+    .mult-banner{background:var(--dark2);border:1px solid var(--border);padding:14px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden;}
+    .mult-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--mult-color,var(--purple)),transparent);}
+
+    /* RANDOM EVENT */
+    .rand-event{background:rgba(124,58,237,0.05);border:1px solid rgba(124,58,237,0.35);padding:14px;margin-bottom:10px;position:relative;overflow:hidden;}
+    .rand-event::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);}
+    .rand-event.done{background:rgba(34,197,94,0.04);border-color:rgba(34,197,94,0.25);}
+    .rand-event.done::before{background:linear-gradient(90deg,transparent,var(--green),transparent);}
+    .rarity-COMMON{color:#9ca3af;}
+    .rarity-UNCOMMON{color:#4ade80;}
+    .rarity-RARE{color:#c084fc;}
+    .rarity-LEGENDARY{color:#f59e0b;}
 
     /* GYM */
     .wtype-btn{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;padding:5px 10px;border:1px solid var(--border);background:var(--dark3);color:var(--text-dim);cursor:pointer;transition:all 0.2s;border-radius:1px;}
@@ -160,6 +174,38 @@
     .ex-item.done .ex-name{color:var(--text-dim);}
     #muscleStatus{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim);letter-spacing:1px;text-align:center;min-height:13px;margin-top:5px;}
 
+    /* SKILL TREE */
+    .skill-branch{background:var(--dark2);border:1px solid var(--border);padding:12px;margin-bottom:12px;}
+    .skill-branch-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+    .skill-nodes-row{display:flex;align-items:center;overflow-x:auto;gap:0;padding-bottom:2px;}
+    .skill-node{min-width:72px;max-width:80px;background:var(--dark3);border:1px solid var(--border);padding:8px 6px;text-align:center;border-radius:3px;cursor:default;transition:all 0.2s;flex-shrink:0;}
+    .skill-node.unlocked{border-color:var(--ncolor,var(--purple));background:rgba(155,89,245,0.12);box-shadow:0 0 10px rgba(155,89,245,0.2);}
+    .skill-node.available{border-color:rgba(155,89,245,0.4);cursor:pointer;opacity:0.85;}
+    .skill-node.available:active{transform:scale(0.97);}
+    .skill-node.locked{opacity:0.3;}
+    .skill-node-name{font-size:10px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px;}
+    .skill-node.unlocked .skill-node-name{color:var(--ncolor,var(--purple-bright));}
+    .skill-node-cost{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim);}
+    .skill-node.unlocked .skill-node-cost{color:var(--green-bright);}
+    .skill-arrow{font-size:13px;padding:0 3px;flex-shrink:0;line-height:1;}
+
+    /* BADGES */
+    .badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px;}
+    .badge-item{background:var(--dark2);border:1px solid var(--border);padding:14px 10px;text-align:center;border-radius:4px;transition:all 0.2s;}
+    .badge-item.owned{border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.04);}
+    .badge-item.locked{opacity:0.28;}
+
+    /* TITLES */
+    .title-item{background:var(--dark2);border:1px solid var(--border);padding:10px 13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;cursor:default;opacity:0.3;}
+    .title-item.owned{opacity:1;cursor:pointer;}
+    .title-item.active{border-color:rgba(0,212,255,0.5);background:rgba(0,212,255,0.05);}
+    .title-item:active.owned{transform:scale(0.99);}
+
+    /* RANK LADDER */
+    .rank-rung{background:var(--dark2);border:1px solid var(--border);padding:11px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+    .rank-rung.achieved{border-color:rgba(34,197,94,0.25);}
+    .rank-rung.current{border-left:3px solid var(--rcolor,var(--purple));background:rgba(155,89,245,0.06);}
+
     /* LOG */
     .log-input-wrap{background:var(--dark2);border:1px solid var(--border);padding:12px;margin-bottom:14px;position:relative;}
     .log-input-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),var(--gold),transparent);}
@@ -173,14 +219,11 @@
     .log-entry-date{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--purple-mid);margin-bottom:5px;letter-spacing:1px;}
     .log-entry-text{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--text);line-height:1.5;}
 
-    /* SETUP — just export/import */
-    .data-btn{width:100%;padding:16px;background:var(--dark2);font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s;border-radius:2px;margin-bottom:12px;}
+    /* DATA btns */
+    .data-btn{width:100%;padding:14px;background:var(--dark2);font-family:'Cinzel',serif;font-size:12px;letter-spacing:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.2s;border-radius:2px;margin-bottom:10px;}
     .data-btn:active{transform:scale(0.99);}
     .data-btn.export{border:1px solid var(--border-gold);color:var(--gold);box-shadow:0 0 12px rgba(201,168,76,0.1);}
-    .data-btn.export:active{background:rgba(201,168,76,0.06);}
     .data-btn.import{border:1px solid var(--border);color:var(--purple-bright);box-shadow:0 0 12px rgba(155,89,245,0.1);}
-    .data-btn.import:active{background:rgba(155,89,245,0.06);}
-    #importFile{display:none;}
     .data-hint{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-dim);text-align:center;letter-spacing:1px;line-height:1.7;margin-top:6px;}
 
     /* MODAL */
@@ -197,6 +240,26 @@
     .activity-date{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-dim);}
     .activity-xp{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--green-bright);}
     .modal-close{position:absolute;top:14px;right:18px;font-size:18px;color:var(--text-dim);cursor:pointer;background:none;border:none;}
+
+    /* NOTIFICATIONS */
+    .notif-wrap{position:fixed;top:14px;right:12px;z-index:200;display:flex;flex-direction:column;gap:7px;max-width:260px;pointer-events:none;}
+    .notif-item{background:var(--dark);border:1px solid transparent;border-left-width:3px;padding:8px 11px;font-family:'Share Tech Mono',monospace;font-size:10px;border-radius:3px;transform:translateX(110%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.35s;opacity:0;box-shadow:0 4px 20px rgba(0,0,0,0.5);}
+    .notif-item.show{transform:translateX(0);opacity:1;}
+    .notif-item.hide{transform:translateX(110%);opacity:0;}
+
+    /* RANK-UP OVERLAY */
+    .rankup-overlay{position:fixed;inset:0;z-index:300;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);}
+    .rankup-overlay.show{display:flex;}
+    .rankup-inner{text-align:center;animation:rankUpIn 3.8s ease forwards;}
+    @keyframes rankUpIn{0%{opacity:0;transform:scale(0.5) translateY(40px)}15%{opacity:1;transform:scale(1.1) translateY(0)}30%,80%{opacity:1;transform:scale(1) translateY(0)}100%{opacity:0;transform:scale(0.95) translateY(-20px)}}
+    .rankup-pre{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:5px;margin-bottom:14px;}
+    .rankup-rank{font-family:'Cinzel',serif;font-size:64px;font-weight:900;letter-spacing:6px;line-height:1;}
+    .rankup-sub{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--text-dim);letter-spacing:4px;margin-top:16px;}
+
+    /* AI QUEST */
+    .ai-quest-card{background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.35);padding:13px;margin-bottom:13px;position:relative;overflow:hidden;}
+    .ai-quest-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purple),transparent);}
+    .ai-reason{font-size:11px;color:var(--purple-mid);font-style:italic;margin-bottom:12px;border-left:2px solid rgba(124,58,237,0.4);padding-left:8px;line-height:1.5;}
 
     ::-webkit-scrollbar{width:2px;}
     ::-webkit-scrollbar-thumb{background:var(--purple-dim);}
@@ -217,42 +280,62 @@
 
 <div class="boot-screen" id="bootScreen">
   <div class="boot-title">SYSTEM</div>
-  <div class="boot-sub">INITIALIZING PLAYER DATA</div>
+  <div class="boot-sub">INITIALIZING HUNTER DATA</div>
   <div class="boot-bar-wrap"><div class="boot-bar"></div></div>
 </div>
 
+<!-- RANK-UP OVERLAY -->
+<div class="rankup-overlay" id="rankupOverlay">
+  <div class="rankup-inner">
+    <div class="rankup-pre">RANK ADVANCEMENT</div>
+    <div class="rankup-rank" id="rankupRank">S</div>
+    <div class="rankup-sub">HUNTER LEVEL INCREASED</div>
+  </div>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="notif-wrap" id="notifWrap"></div>
+
 <div id="app">
+  <!-- HEADER -->
   <div class="header">
     <div class="header-top">
       <div>
-        <div class="system-label">◆ SYSTEM INTERFACE v2.0</div>
+        <div class="system-label">◆ SYSTEM INTERFACE v3.0</div>
         <div class="player-name">SAKSHAM</div>
+        <div class="active-title-lbl" id="activeTitleLbl">The Awakened</div>
       </div>
-      <div class="level-badge" id="levelBadge">LVL 1</div>
+      <div class="header-right">
+        <div class="rank-badge" id="rankBadge">E</div>
+        <div class="level-badge" id="levelBadge">LVL 1</div>
+      </div>
     </div>
     <div class="xp-row">
       <div class="xp-label">XP</div>
       <div class="xp-bar-wrap"><div class="xp-bar-fill" id="globalXpBar" style="width:0%"></div></div>
       <div class="xp-count" id="xpCount">0 / 500</div>
     </div>
+    <div class="header-sub">
+      <span class="hstat" id="coinsDisp" style="color:var(--gold)">💰 0</span>
+      <span class="hstat" id="streakDisp" style="color:var(--purple-bright)">🔥 0d ×1.0</span>
+      <span class="hstat" id="questsDisp" style="color:var(--text-dim)">📋 0/5</span>
+    </div>
   </div>
 
+  <!-- TABS -->
   <div class="tabs">
     <div class="tab active" onclick="switchTab('dashboard')">DASH</div>
-    <div class="tab" onclick="switchTab('quests')">QUESTS</div>
+    <div class="tab" onclick="switchTab('quests')">QUEST</div>
     <div class="tab" onclick="switchTab('gym')">GYM</div>
+    <div class="tab" onclick="switchTab('skills')">SKILLS</div>
     <div class="tab" onclick="switchTab('log')">LOG</div>
-    <div class="tab" onclick="switchTab('data')">DATA</div>
+    <div class="tab" onclick="switchTab('system')">SYS</div>
   </div>
 
   <!-- ═══════ DASHBOARD ═══════ -->
   <div class="screen active" id="screen-dashboard">
-
-    <!-- STATS -->
     <div class="st">◆ PLAYER STATS</div>
     <div class="stats-grid" id="statsGrid"></div>
-
-    <!-- WEEKLY STREAK (top, 7 days) -->
     <div class="st">◆ WEEKLY STREAK</div>
     <div class="streak-block">
       <div class="streak-header">
@@ -264,18 +347,13 @@
       </div>
       <div class="streak-days" id="streakDays"></div>
     </div>
-
-    <!-- ACTIVITY CALENDAR (bottom) -->
     <div class="st g">◆ ACTIVITY CALENDAR</div>
     <div class="cal-container">
-      <!-- View toggle -->
       <div class="cal-view-toggle">
         <button class="cal-view-btn active" id="btnMonth" onclick="setCalView('month')">MONTH</button>
         <button class="cal-view-btn" id="btnYear" onclick="setCalView('year')">YEAR</button>
         <div style="font-family:'Share Tech Mono',monospace;font-size:7px;color:var(--text-dim);letter-spacing:1px;margin-left:auto">PINCH TO ZOOM</div>
       </div>
-
-      <!-- MONTH VIEW -->
       <div class="cal-month-view" id="calMonthView">
         <div class="cal-mheader">
           <div class="cal-mname" id="calMonthName"></div>
@@ -301,21 +379,18 @@
           <div class="cal-leg-lbl">MORE</div>
         </div>
       </div>
-
-      <!-- YEAR VIEW -->
       <div class="cal-year-view" id="calYearView">
         <div class="year-grid" id="yearGrid"></div>
       </div>
     </div>
-
   </div>
 
   <!-- ═══════ QUESTS ═══════ -->
   <div class="screen" id="screen-quests">
-    <div class="st">◆ DAILY QUESTS</div>
-    <div id="dailyQuestList"></div>
-    <div class="st g" style="margin-top:8px">◆ WEEKLY BOSS</div>
-    <div id="bossQuestList"></div>
+    <div id="multBannerWrap"></div>
+    <div id="newDailyQuestList"></div>
+    <div id="randomEventSection"></div>
+    <div id="bossQuestSection"></div>
   </div>
 
   <!-- ═══════ GYM ═══════ -->
@@ -370,6 +445,11 @@
     </div>
   </div>
 
+  <!-- ═══════ SKILLS ═══════ -->
+  <div class="screen" id="screen-skills">
+    <div id="skillsContent"></div>
+  </div>
+
   <!-- ═══════ LOG ═══════ -->
   <div class="screen" id="screen-log">
     <div class="st">◆ SYSTEM LOG</div>
@@ -383,17 +463,9 @@
     <div id="logEntries"></div>
   </div>
 
-  <!-- ═══════ DATA ═══════ -->
-  <div class="screen" id="screen-data">
-    <div class="st g">◆ DATA</div>
-    <button class="data-btn export" onclick="exportData()">◆ EXPORT DATA</button>
-    <label class="data-btn import">
-      ◆ IMPORT DATA
-      <input type="file" id="importFile" accept=".json" onchange="importData(event)">
-    </label>
-    <div class="data-hint">
-      EXPORT MONTHLY → UPLOAD TO CLAUDE → GET ANALYSIS + UPDATES
-    </div>
+  <!-- ═══════ SYSTEM ═══════ -->
+  <div class="screen" id="screen-system">
+    <div id="sysContent"></div>
   </div>
 </div>
 
@@ -409,98 +481,418 @@
 </div>
 
 <script>
-// ══════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// CONSTANTS
+// ═══════════════════════════════════════════════════
+const RANKS = [
+  {name:'E',      minXP:0,     color:'#9ca3af', glow:'rgba(156,163,175,0.35)'},
+  {name:'D',      minXP:500,   color:'#4ade80', glow:'rgba(74,222,128,0.35)'},
+  {name:'C',      minXP:1500,  color:'#60a5fa', glow:'rgba(96,165,250,0.35)'},
+  {name:'B',      minXP:3000,  color:'#c084fc', glow:'rgba(192,132,252,0.35)'},
+  {name:'A',      minXP:6000,  color:'#fb923c', glow:'rgba(251,146,60,0.35)'},
+  {name:'S',      minXP:10000, color:'#f87171', glow:'rgba(248,113,113,0.45)'},
+  {name:'MONARCH',minXP:20000, color:'#00d4ff', glow:'rgba(0,212,255,0.55)'},
+];
+
+const DAILY_QUESTS = [
+  {id:'wake8',  icon:'🌅', name:'Rise Before 8 AM',    desc:'The early hunter claims the world',       xp:50,  coins:10, stat:'discipline'},
+  {id:'gym',    icon:'⚔️', name:'Daily Gym Conquered', desc:'Push. Pull. Legs. No excuses.',            xp:80,  coins:20, stat:'strength'},
+  {id:'nojunk', icon:'🥗', name:'Zero Junk Food',      desc:'Fuel the machine with intent',             xp:40,  coins:10, stat:'discipline'},
+  {id:'study',  icon:'📊', name:'Study 2+ Hours',      desc:'Power BI or SQL — sharpen the blade',     xp:70,  coins:15, stat:'intelligence'},
+  {id:'read',   icon:'📖', name:'Read 10 Pages',        desc:'The mind is a weapon. Keep it loaded.',   xp:30,  coins:8,  stat:'intelligence'},
+];
+
+const RANDOM_EVENTS = [
+  {id:'re1',rarity:'RARE',     icon:'🏰',title:'SHADOW DUNGEON DISCOVERED', desc:'Complete 100 push-ups before midnight.',       xp:150,coins:40},
+  {id:'re2',rarity:'UNCOMMON', icon:'⚡',title:'SYSTEM: FOCUS TRIAL',       desc:'No social media for 3 hours straight.',        xp:100,coins:25},
+  {id:'re3',rarity:'COMMON',   icon:'💧',title:'HYDRATION PROTOCOL',        desc:'Drink 3 litres of water today.',               xp:60, coins:15},
+  {id:'re4',rarity:'UNCOMMON', icon:'👑',title:"MONARCH'S TRIAL",          desc:'Meditate 10 uninterrupted minutes.',           xp:80, coins:20},
+  {id:'re5',rarity:'COMMON',   icon:'🌙',title:'SHADOW VOW',               desc:'Sleep before midnight tonight.',               xp:70, coins:18},
+  {id:'re6',rarity:'RARE',     icon:'❄️',title:'ICE SOVEREIGN TRIAL',      desc:'Cold shower — 2 minutes minimum.',            xp:90, coins:22},
+  {id:'re7',rarity:'COMMON',   icon:'🚶',title:'IRON MARCH',               desc:'Walk 8000+ steps today.',                     xp:65, coins:16},
+  {id:'re8',rarity:'UNCOMMON', icon:'📺',title:'DARK ARTS: EXTRA SESSION', desc:'Watch one extra Power BI tutorial today.',     xp:75, coins:18},
+  {id:'re9',rarity:'LEGENDARY',icon:'🌟',title:'HUNTER AWAKENING',         desc:'Complete ALL 5 daily quests + this event.',   xp:200,coins:60},
+];
+const RARITY_COLORS = {COMMON:'#9ca3af',UNCOMMON:'#4ade80',RARE:'#c084fc',LEGENDARY:'#f59e0b'};
+
+const TITLE_DEFS = [
+  {name:'The Awakened',      req:'Default',          unlock:p=>true},
+  {name:'Fortune 500 Agent', req:'500 XP',            unlock:p=>p.xp>=500},
+  {name:'Silent Grinder',    req:'7-day streak',      unlock:p=>p.dayStreak>=7},
+  {name:'Night Hunter',      req:'10 gym sessions',   unlock:p=>p.gymCount>=10},
+  {name:'Iron Disciplined',  req:'14-day streak',     unlock:p=>p.dayStreak>=14},
+  {name:'The Focused',       req:'Study 5×',          unlock:p=>p.studyCount>=5},
+  {name:'Monarch Candidate', req:'S Rank',            unlock:p=>['S','MONARCH'].includes(p.rank)},
+  {name:'Beast Incarnate',   req:'30-day streak',     unlock:p=>p.dayStreak>=30},
+  {name:'Shadow Sovereign',  req:'MONARCH Rank',      unlock:p=>p.rank==='MONARCH'},
+];
+
+const BADGE_DEFS = [
+  {id:'iron_disc', icon:'🔩',name:'Iron Discipline',  desc:'14 days of unwavering resolve',    unlock:p=>p.dayStreak>=14},
+  {id:'night_h',   icon:'🌙',name:'Night Hunter',      desc:'Gym conquered 10 times',           unlock:p=>p.gymCount>=10},
+  {id:'monk',      icon:'🧠',name:'Monk Focus',        desc:'Study completed 7 times',          unlock:p=>p.studyCount>=7},
+  {id:'beast',     icon:'🐺',name:'Beast Mode',        desc:'Gym + Clean Diet 5 days aligned',  unlock:p=>p.beastCount>=5},
+  {id:'shadow_s',  icon:'🏰',name:'Shadow Soldier',    desc:'First random event cleared',       unlock:p=>p.eventsCleared>=1},
+  {id:'awakened',  icon:'⚡',name:'The Awakened One',  desc:'Reached C Rank',                   unlock:p=>['C','B','A','S','MONARCH'].includes(p.rank)},
+  {id:'fortune_b', icon:'💼',name:'Fortune 500 Badge', desc:'Earned 1000 total XP',             unlock:p=>p.xp>=1000},
+  {id:'mkey',      icon:'👑',name:"Monarch's Key",     desc:'Reached S Rank',                   unlock:p=>['S','MONARCH'].includes(p.rank)},
+];
+
+const SKILL_BRANCHES = [
+  {id:'fitness',  label:'FITNESS',   icon:'⚔️',color:'#ef4444',nodes:[
+    {id:'ft1',name:'Warm-Up Ritual',   xpCost:0,    desc:'Daily stretch every morning',req:null},
+    {id:'ft2',name:'PPL Split Master', xpCost:200,  desc:'6-day consistent split',     req:'ft1'},
+    {id:'ft3',name:'Beast Physique',   xpCost:1000, desc:'75kg physique achieved',     req:'ft2'},
+    {id:'ft4',name:'Elite Athlete',    xpCost:3000, desc:'Diet + gym fully optimized', req:'ft3'},
+  ]},
+  {id:'career',   label:'CAREER',    icon:'📊',color:'#3b82f6',nodes:[
+    {id:'ca1',name:'Power BI Init',    xpCost:0,    desc:'Guy in a Cube foundations',   req:null},
+    {id:'ca2',name:'SQL Apprentice',   xpCost:300,  desc:'Joins & aggregations mastered',req:'ca1'},
+    {id:'ca3',name:'BA Portfolio',     xpCost:1500, desc:'PepsiCo dashboard published', req:'ca2'},
+    {id:'ca4',name:'Harvey Mode',      xpCost:5000, desc:'Fortune 500 / Big 5 ready',   req:'ca3'},
+  ]},
+  {id:'discipline',label:'DISCIPLINE',icon:'🔩',color:'#8b5cf6',nodes:[
+    {id:'di1',name:'Morning Protocol', xpCost:0,    desc:'Wake before 8, no excuses',   req:null},
+    {id:'di2',name:'Clean Streak',     xpCost:250,  desc:'No junk for 7 days',          req:'di1'},
+    {id:'di3',name:'30-Day Vow',       xpCost:2000, desc:'One month unbroken',          req:'di2'},
+    {id:'di4',name:'Iron Will',        xpCost:6000, desc:'System cannot break you',     req:'di3'},
+  ]},
+  {id:'comms',    label:'COMMS',     icon:'💬',color:'#f59e0b',nodes:[
+    {id:'co1',name:'LinkedIn Active',  xpCost:0,    desc:'Fortune 500 profile live',    req:null},
+    {id:'co2',name:'Pro Voice',        xpCost:400,  desc:'Clear and confident, always', req:'co1'},
+    {id:'co3',name:'Network Active',   xpCost:2000, desc:'10 meaningful connections',   req:'co2'},
+    {id:'co4',name:'Room Commander',   xpCost:7000, desc:'Every room, your terms',      req:'co3'},
+  ]},
+  {id:'wealth',   label:'WEALTH',    icon:'💰',color:'#10b981',nodes:[
+    {id:'we1',name:'Budget Aware',     xpCost:0,    desc:'Every rupee tracked',         req:null},
+    {id:'we2',name:'First Investment', xpCost:500,  desc:'SIP started',                 req:'we1'},
+    {id:'we3',name:'Side Income',      xpCost:3000, desc:'Revenue beyond HCL',          req:'we2'},
+    {id:'we4',name:'Free Agent',       xpCost:10000,desc:'Money works for you',         req:'we3'},
+  ]},
+  {id:'spirit',   label:'SPIRIT',    icon:'✨',color:'#00d4ff',nodes:[
+    {id:'sp1',name:'Morning Prayer',   xpCost:0,    desc:'Gratitude and faith daily',   req:null},
+    {id:'sp2',name:'Law of Detachment',xpCost:300,  desc:'Effort, not outcomes',        req:'sp1'},
+    {id:'sp3',name:'Inner Fortress',   xpCost:1500, desc:'Chaos out. Silence within.',  req:'sp2'},
+    {id:'sp4',name:'Sovereign Soul',   xpCost:4000, desc:'Faith + logic aligned',       req:'sp3'},
+  ]},
+];
+
+// ═══════════════════════════════════════════════════
 // STATE
-// ══════════════════════════════════════════
-const KEY = 'system_saksham_v3';
+// ═══════════════════════════════════════════════════
+const KEY = 'system_saksham_v4';
 let S = {
-  xp:0, level:1,
+  xp:0, level:1, rank:'E',
+  coins:0, dayStreak:0, lastActiveDate:null,
+  lastQuestDate:null, questsDone:{},
+  gymCount:0, studyCount:0, beastCount:0, eventsCleared:0,
+  titles:['The Awakened'], activeTitle:'The Awakened',
+  badges:[], unlockedSkills:[],
+  randomEvent:null, randomEventDate:null, randomEventDone:false,
+  voiceEnabled:true, aiQuest:null,
   stats:{
-    intelligence:{ xp:0, label:'🧠 Intelligence', bar:'pb', activities:[] },
-    ambition:    { xp:0, label:'💼 Ambition',     bar:'gb', activities:[] },
-    strength:    { xp:0, label:'💪 Strength',      bar:'pb', activities:[] },
-    discipline:  { xp:0, label:'🔥 Discipline',    bar:'gb', activities:[] },
-    charisma:    { xp:0, label:'✨ Charisma',      bar:'pb', activities:[] },
-    spirit:      { xp:0, label:'🙏 Spirit',         bar:'gb', activities:[] }
+    intelligence:{xp:0,label:'🧠 Intelligence',bar:'pb',activities:[]},
+    ambition:    {xp:0,label:'💼 Ambition',    bar:'gb',activities:[]},
+    strength:    {xp:0,label:'💪 Strength',    bar:'pb',activities:[]},
+    discipline:  {xp:0,label:'🔥 Discipline',  bar:'gb',activities:[]},
+    charisma:    {xp:0,label:'✨ Charisma',    bar:'pb',activities:[]},
+    spirit:      {xp:0,label:'🙏 Spirit',       bar:'gb',activities:[]},
   },
-  // 7 days: Mon Tue Wed Thu Fri Sat Sun
   streakDays:[false,false,false,false,false,false,false],
   quests:{
     daily:[
-      {id:'q1',name:'Power BI Practice',desc:'30-45 min of Power BI learning',xp:50,stat:'intelligence',done:false},
-      {id:'q2',name:'LinkedIn Action',desc:'Post, comment, or connect with 1 person',xp:40,stat:'ambition',done:false},
-      {id:'q3',name:'Hit Protein Goal',desc:'80-100g protein from whole foods',xp:30,stat:'strength',done:false},
-      {id:'q4',name:'Morning Stretch',desc:'Complete morning stretch + hanging',xp:25,stat:'strength',done:false},
-      {id:'q5',name:'Law of Detachment',desc:'10 min stillness — release outcomes',xp:35,stat:'spirit',done:false},
-      {id:'q6',name:'Daily Reflection',desc:'Write a log entry before midnight',xp:30,stat:'discipline',done:false},
+      {id:'q1',name:'Power BI Practice',   desc:'30-45 min of Power BI learning',           xp:50,stat:'intelligence',done:false},
+      {id:'q2',name:'LinkedIn Action',      desc:'Post, comment, or connect with 1 person',  xp:40,stat:'ambition',    done:false},
+      {id:'q3',name:'Hit Protein Goal',     desc:'80-100g protein from whole foods',         xp:30,stat:'strength',    done:false},
+      {id:'q4',name:'Morning Stretch',      desc:'Complete morning stretch + hanging',        xp:25,stat:'strength',    done:false},
+      {id:'q5',name:'Law of Detachment',    desc:'10 min stillness — release outcomes',      xp:35,stat:'spirit',      done:false},
     ],
     boss:[
       {id:'b1',name:'Complete Full PPL Week',desc:'Push, Pull, Legs — all 6 training days done',xp:200,stat:'strength',done:false},
-      {id:'b2',name:'BA Portfolio Entry',desc:'Document 1 project or analysis this week',xp:250,stat:'ambition',done:false},
+      {id:'b2',name:'BA Portfolio Entry',    desc:'Document 1 project or analysis this week',    xp:250,stat:'ambition',done:false},
     ]
   },
   gym:{
     type:'push',
     exercises:{
       push:[
-        {name:'Bench Press',sets:'4×8-10',done:false,muscles:['chest','lshoulder','rshoulder','ltricep','rtricep']},
+        {name:'Bench Press',     sets:'4×8-10', done:false,muscles:['chest','lshoulder','rshoulder','ltricep','rtricep']},
         {name:'Incline DB Press',sets:'3×10-12',done:false,muscles:['chest','lshoulder','rshoulder']},
-        {name:'Shoulder Press',sets:'3×10',done:false,muscles:['lshoulder','rshoulder','ltricep','rtricep']},
-        {name:'Lateral Raises',sets:'3×15',done:false,muscles:['lshoulder','rshoulder']},
-        {name:'Tricep Pushdown',sets:'3×12',done:false,muscles:['ltricep','rtricep']},
-        {name:'Chest Fly',sets:'3×12',done:false,muscles:['chest']},
+        {name:'Shoulder Press',  sets:'3×10',   done:false,muscles:['lshoulder','rshoulder','ltricep','rtricep']},
+        {name:'Lateral Raises',  sets:'3×15',   done:false,muscles:['lshoulder','rshoulder']},
+        {name:'Tricep Pushdown', sets:'3×12',   done:false,muscles:['ltricep','rtricep']},
+        {name:'Chest Fly',       sets:'3×12',   done:false,muscles:['chest']},
       ],
       pull:[
-        {name:'Pull-ups',sets:'4×6-8',done:false,muscles:['llat','rlat','lbicep','rbicep']},
-        {name:'Barbell Row',sets:'4×8',done:false,muscles:['llat','rlat','traps']},
-        {name:'Lat Pulldown',sets:'3×10',done:false,muscles:['llat','rlat']},
-        {name:'Face Pulls',sets:'3×15',done:false,muscles:['traps','lshoulder','rshoulder']},
-        {name:'Bicep Curl',sets:'3×12',done:false,muscles:['lbicep','rbicep']},
-        {name:'Hammer Curl',sets:'3×12',done:false,muscles:['lbicep','rbicep','lforearm','rforearm']},
+        {name:'Pull-ups',       sets:'4×6-8', done:false,muscles:['llat','rlat','lbicep','rbicep']},
+        {name:'Barbell Row',    sets:'4×8',   done:false,muscles:['llat','rlat','traps']},
+        {name:'Lat Pulldown',   sets:'3×10',  done:false,muscles:['llat','rlat']},
+        {name:'Face Pulls',     sets:'3×15',  done:false,muscles:['traps','lshoulder','rshoulder']},
+        {name:'Bicep Curl',     sets:'3×12',  done:false,muscles:['lbicep','rbicep']},
+        {name:'Hammer Curl',    sets:'3×12',  done:false,muscles:['lbicep','rbicep','lforearm','rforearm']},
       ],
       legs:[
-        {name:'Barbell Squat',sets:'4×8',done:false,muscles:['lquad','rquad','glutes']},
-        {name:'Romanian Deadlift',sets:'3×10',done:false,muscles:['lham','rham','glutes']},
-        {name:'Leg Press',sets:'3×12',done:false,muscles:['lquad','rquad']},
-        {name:'Leg Curl',sets:'3×12',done:false,muscles:['lham','rham']},
-        {name:'Calf Raises',sets:'4×20',done:false,muscles:['lcalf','rcalf']},
-        {name:'Lunges',sets:'3×10 each',done:false,muscles:['lquad','rquad','glutes']},
+        {name:'Barbell Squat',     sets:'4×8',        done:false,muscles:['lquad','rquad','glutes']},
+        {name:'Romanian Deadlift', sets:'3×10',        done:false,muscles:['lham','rham','glutes']},
+        {name:'Leg Press',         sets:'3×12',        done:false,muscles:['lquad','rquad']},
+        {name:'Leg Curl',          sets:'3×12',        done:false,muscles:['lham','rham']},
+        {name:'Calf Raises',       sets:'4×20',        done:false,muscles:['lcalf','rcalf']},
+        {name:'Lunges',            sets:'3×10 each',   done:false,muscles:['lquad','rquad','glutes']},
       ],
       rest:[]
     }
   },
-  logs:[],
-  calData:{},
-  trainedMuscles:{},
-  calY: new Date().getFullYear(),
-  calM: new Date().getMonth(),
-  calView: 'month'
+  logs:[], calData:{}, trainedMuscles:{},
+  calY:new Date().getFullYear(), calM:new Date().getMonth(), calView:'month',
 };
 
-function load(){try{const d=localStorage.getItem(KEY);if(d){const p=JSON.parse(d);S={...S,...p};}}catch(e){}}
+// ═══════════════════════════════════════════════════
+// STORAGE + MIGRATION
+// ═══════════════════════════════════════════════════
+function load(){
+  try{
+    let d=localStorage.getItem(KEY);
+    if(!d){
+      const old=localStorage.getItem('system_saksham_v3');
+      if(old){
+        const op=JSON.parse(old);
+        S={...S,xp:op.xp||0,level:op.level||1,stats:op.stats||S.stats,
+          streakDays:op.streakDays||S.streakDays,quests:op.quests||S.quests,
+          gym:op.gym||S.gym,logs:op.logs||[],calData:op.calData||{},
+          trainedMuscles:op.trainedMuscles||{},calY:op.calY||S.calY,
+          calM:op.calM||S.calM,calView:op.calView||'month'};
+        return;
+      }
+    }
+    if(d){const p=JSON.parse(d);S={...S,...p};}
+  }catch(e){}
+}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 
-// ── LEVEL ──
+// ═══════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════
 const XPT=[0,500,1200,2200,3500,5000,7000,9500,12500,16000,20000];
 function getLevel(xp){let l=1;for(let i=1;i<XPT.length;i++){if(xp>=XPT[i])l=i+1;else break;}return Math.min(l,10);}
 function getLvlRange(l){return{min:XPT[Math.min(l-1,XPT.length-1)]||0,max:XPT[Math.min(l,XPT.length-1)]||20000};}
+function getRank(xp){for(let i=RANKS.length-1;i>=0;i--){if(xp>=RANKS[i].minXP)return RANKS[i];}return RANKS[0];}
+function getNextRank(xp){return RANKS.find(r=>r.minXP>xp)||null;}
+function getMultiplier(streak){
+  if(streak>=30)return{val:3.0,label:'×3.0',tier:'MONARCH GRIND',color:'#00d4ff'};
+  if(streak>=14)return{val:2.0,label:'×2.0',tier:'ELITE MODE',   color:'#fb923c'};
+  if(streak>=7) return{val:1.5,label:'×1.5',tier:'HUNTER MODE',  color:'#c084fc'};
+  if(streak>=3) return{val:1.2,label:'×1.2',tier:'ON THE RISE',  color:'#4ade80'};
+  return              {val:1.0,label:'×1.0',tier:'BASELINE',     color:'#9ca3af'};
+}
+function todayStr(){const n=new Date();return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;}
 
-// ── CALENDAR HELPERS ──
-function todayKey(){const n=new Date();return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;}
-function dateKey(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
-function recordCal(){const k=todayKey();S.calData[k]=(S.calData[k]||0)+1;}
-function getLevelClass(count,prefix='l'){if(!count)return'';if(count<=2)return prefix+'1';if(count<=4)return prefix+'2';if(count<=7)return prefix+'3';return prefix+'4';}
+// ═══════════════════════════════════════════════════
+// DAILY RESET + RANDOM EVENT ROLL
+// ═══════════════════════════════════════════════════
+function dailyReset(){
+  const today=todayStr();
+  if(S.lastQuestDate!==today){
+    S.questsDone={};
+    S.lastQuestDate=today;
+  }
+  if(S.randomEventDate!==today){
+    S.randomEvent=Math.random()<0.65?RANDOM_EVENTS[Math.floor(Math.random()*RANDOM_EVENTS.length)]:null;
+    S.randomEventDate=today;
+    S.randomEventDone=false;
+  }
+}
 
-// ── RENDER ALL ──
-function render(){renderHeader();renderStats();renderStreak();renderCalendar();renderQuests();renderGym();renderLog();}
+// ═══════════════════════════════════════════════════
+// VOICE
+// ═══════════════════════════════════════════════════
+function speak(text){
+  if(!S.voiceEnabled||!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.rate=0.82;u.pitch=0.6;u.volume=0.9;
+  const tryS=()=>{
+    const voices=window.speechSynthesis.getVoices();
+    const v=voices.find(v=>/male|david|daniel|alex|mark|george/i.test(v.name));
+    if(v)u.voice=v;
+    window.speechSynthesis.speak(u);
+  };
+  if(window.speechSynthesis.getVoices().length===0){window.speechSynthesis.onvoiceschanged=tryS;}
+  else{tryS();}
+}
+
+// ═══════════════════════════════════════════════════
+// NOTIFICATIONS
+// ═══════════════════════════════════════════════════
+const NCOLORS={quest:'#4ade80',rank:'#00d4ff',item:'#c084fc',title:'#fb923c',event:'#f59e0b',complete:'#fbbf24',ai:'#60a5fa',skill:'#34d399',error:'#f87171',info:'#9ca3af',coins:'#f0c84a'};
+let nid=0;
+function notify(msg,type='info',ms=4200){
+  const wrap=document.getElementById('notifWrap');if(!wrap)return;
+  const color=NCOLORS[type]||'#9ca3af';
+  const el=document.createElement('div');el.className='notif-item';
+  el.style.cssText=`border-left-color:${color};color:${color};border-color:${color}44;`;
+  el.textContent=msg;
+  wrap.appendChild(el);
+  requestAnimationFrame(()=>el.classList.add('show'));
+  setTimeout(()=>{el.classList.remove('show');el.classList.add('hide');setTimeout(()=>el.remove(),400);},ms);
+}
+
+// ═══════════════════════════════════════════════════
+// RANK-UP OVERLAY
+// ═══════════════════════════════════════════════════
+function showRankUp(rank){
+  const o=document.getElementById('rankupOverlay');
+  const r=document.getElementById('rankupRank');
+  if(!o||!r)return;
+  r.textContent=rank.name;
+  r.style.color=rank.color;
+  r.style.textShadow=`0 0 60px ${rank.glow},0 0 120px ${rank.glow}`;
+  o.classList.add('show');
+  setTimeout(()=>o.classList.remove('show'),4000);
+}
+
+// ═══════════════════════════════════════════════════
+// BADGES + TITLES CHECK
+// ═══════════════════════════════════════════════════
+function checkBadges(){
+  BADGE_DEFS.forEach(b=>{
+    if(!(S.badges||[]).includes(b.id)&&b.unlock(S)){
+      S.badges=[...(S.badges||[]),b.id];
+      setTimeout(()=>notify(`🎒 ITEM ACQUIRED — ${b.name}`,'item'),300);
+    }
+  });
+}
+function checkTitles(){
+  TITLE_DEFS.forEach(t=>{
+    if(!(S.titles||['The Awakened']).includes(t.name)&&t.unlock(S)){
+      S.titles=[...(S.titles||['The Awakened']),t.name];
+      setTimeout(()=>{notify(`🏷️ TITLE UNLOCKED — ${t.name}`,'title');speak(`New title unlocked. ${t.name}.`);},500);
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// GAIN XP (centralized)
+// ═══════════════════════════════════════════════════
+function gainXP(baseXP,source,statKey){
+  const mult=getMultiplier(S.dayStreak||0).val;
+  const gained=Math.round(baseXP*mult);
+  const oldRank=getRank(S.xp);
+  S.xp+=gained;
+  S.level=getLevel(S.xp);
+  const newRank=getRank(S.xp);
+  S.rank=newRank.name;
+  if(statKey&&S.stats[statKey]){
+    S.stats[statKey].xp+=gained;
+    S.stats[statKey].activities.push({name:source||'activity',xp:gained,date:new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short'})});
+  }
+  if(newRank.name!==oldRank.name){
+    setTimeout(()=>{showRankUp(newRank);speak(`Rank up. You are now ${newRank.name} rank. The system acknowledges your power.`);notify(`⚡ RANK UP — ${oldRank.name} → ${newRank.name}`,'rank',5000);},200);
+  }
+  recordCal();
+  checkBadges();
+  checkTitles();
+  save();
+  render();
+  return gained;
+}
+
+// ═══════════════════════════════════════════════════
+// COMPLETE DAILY QUEST
+// ═══════════════════════════════════════════════════
+function completeNewQuest(id){
+  if(S.questsDone[id])return;
+  const quest=DAILY_QUESTS.find(q=>q.id===id);if(!quest)return;
+  const wasBeast=S.questsDone['gym']&&S.questsDone['nojunk'];
+  S.questsDone[id]=true;
+  S.coins=(S.coins||0)+quest.coins;
+  if(id==='gym')S.gymCount=(S.gymCount||0)+1;
+  if(id==='study')S.studyCount=(S.studyCount||0)+1;
+  if(!wasBeast&&S.questsDone['gym']&&S.questsDone['nojunk'])S.beastCount=(S.beastCount||0)+1;
+  // Update day streak
+  const today=todayStr();
+  if(S.lastActiveDate!==today){
+    const y=new Date();y.setDate(y.getDate()-1);
+    const yStr=`${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,'0')}-${String(y.getDate()).padStart(2,'0')}`;
+    S.dayStreak=S.lastActiveDate===yStr?(S.dayStreak||0)+1:1;
+    S.lastActiveDate=today;
+  }
+  speak(`Quest complete. ${quest.name}.`);
+  notify(`✅ ${quest.name} +${quest.xp} XP +${quest.coins} COINS`,'quest');
+  const allDone=DAILY_QUESTS.every(q=>S.questsDone[q.id]);
+  if(allDone){
+    setTimeout(()=>{speak('All daily quests completed. The System is pleased. Bonus XP incoming.');notify('🏆 ALL QUESTS COMPLETE — BONUS +50 XP','complete',5000);gainXP(50,'All Quests Bonus','discipline');},600);
+    if(S.gymCount>0&&S.gymCount%6===0){
+      setTimeout(()=>{gainXP(120,'Weekly Gym Streak','strength');notify('💪 WEEKLY GYM BONUS — +120 XP','complete',5000);speak('Weekly gym objective complete. Double experience bonus awarded.');},1500);
+    }
+  }
+  gainXP(quest.xp,quest.name,quest.stat);
+}
+
+// ═══════════════════════════════════════════════════
+// RANDOM EVENT
+// ═══════════════════════════════════════════════════
+function completeRandomEvent(){
+  if(!S.randomEvent||S.randomEventDone)return;
+  S.randomEventDone=true;
+  S.eventsCleared=(S.eventsCleared||0)+1;
+  S.coins=(S.coins||0)+S.randomEvent.coins;
+  speak('Random encounter eliminated. Rewards transferred to hunter.');
+  notify(`⚡ EVENT CLEARED — +${S.randomEvent.xp} XP +${S.randomEvent.coins} COINS`,'event');
+  gainXP(S.randomEvent.xp,S.randomEvent.title,null);
+}
+
+// ═══════════════════════════════════════════════════
+// SKILL TREE
+// ═══════════════════════════════════════════════════
+function unlockSkillNode(nodeId){
+  const branch=SKILL_BRANCHES.find(b=>b.nodes.some(n=>n.id===nodeId));if(!branch)return;
+  const node=branch.nodes.find(n=>n.id===nodeId);if(!node)return;
+  if((S.unlockedSkills||[]).includes(nodeId)){return;}
+  if(S.xp<node.xpCost){notify('⚠️ Insufficient XP to unlock this node','error');return;}
+  if(node.req&&!(S.unlockedSkills||[]).includes(node.req)){notify('⚠️ Prerequisite node required','error');return;}
+  S.unlockedSkills=[...(S.unlockedSkills||[]),nodeId];
+  speak(`Skill unlocked. ${node.name}. You grow stronger, hunter.`);
+  notify(`🌟 SKILL UNLOCKED — ${node.name}`,'skill');
+  save();renderSkillsContent();
+}
+function setActiveTitle(t){
+  if(!(S.titles||[]).includes(t))return;
+  S.activeTitle=t;
+  save();
+  const el=document.getElementById('activeTitleLbl');if(el)el.textContent=t;
+  notify(`🏷️ Title equipped: ${t}`,'title');
+  renderSysContent();
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER — MAIN
+// ═══════════════════════════════════════════════════
+function render(){
+  renderHeader();
+  renderStats();
+  renderStreak();
+  renderCalendar();
+  renderNewQuests();
+  renderGym();
+  renderLog();
+}
 
 function renderHeader(){
   const l=getLevel(S.xp);S.level=l;
   document.getElementById('levelBadge').textContent=`LVL ${l}`;
+  const rank=getRank(S.xp);
+  const rb=document.getElementById('rankBadge');
+  rb.textContent=rank.name;rb.style.color=rank.color;rb.style.borderColor=rank.color;rb.style.boxShadow=`0 0 10px ${rank.glow}`;
   const{min,max}=getLvlRange(l);
   const pct=Math.min(100,((S.xp-min)/(max-min))*100);
   document.getElementById('globalXpBar').style.width=pct+'%';
-  document.getElementById('xpCount').textContent=`${S.xp} / ${max}`;
+  document.getElementById('xpCount').textContent=`${S.xp.toLocaleString()} / ${max.toLocaleString()}`;
+  document.getElementById('coinsDisp').textContent=`💰 ${S.coins||0}`;
+  const mult=getMultiplier(S.dayStreak||0);
+  const sd=document.getElementById('streakDisp');sd.textContent=`🔥 ${S.dayStreak||0}d ${mult.label}`;sd.style.color=mult.color;
+  const done=DAILY_QUESTS.filter(q=>S.questsDone[q.id]).length;
+  const qd=document.getElementById('questsDisp');qd.textContent=`📋 ${done}/5`;qd.style.color=done===5?'var(--green-bright)':'var(--text-dim)';
+  const tl=document.getElementById('activeTitleLbl');if(tl)tl.textContent=S.activeTitle||'The Awakened';
 }
 
 function renderStats(){
@@ -508,32 +900,25 @@ function renderStats(){
   for(const[key,stat]of Object.entries(S.stats)){
     const pct=Math.min(100,(stat.xp/2000)*100);
     const el=document.createElement('div');el.className='stat-row';
-    const icon=stat.label.split(' ')[0];
-    const name=stat.label.slice(stat.label.indexOf(' ')+1).toUpperCase();
+    const icon=stat.label.split(' ')[0];const name=stat.label.slice(stat.label.indexOf(' ')+1).toUpperCase();
     el.innerHTML=`<div class="stat-icon">${icon}</div><div class="stat-info"><div class="stat-name">${name}<span>+${stat.xp} XP</span></div><div class="stat-bar-wrap"><div class="stat-bar-fill ${stat.bar}" style="width:${pct}%"></div></div></div>`;
     el.onclick=()=>openStatModal(key);
     g.appendChild(el);
   }
 }
 
-// ── STREAK (7 days Mon-Sun) ──
+// ── STREAK ──
 const DNAMES=['MON','TUE','WED','THU','FRI','SAT','SUN'];
 function renderStreak(){
   const c=document.getElementById('streakDays');c.innerHTML='';
-  let streak=0;
-  for(let i=S.streakDays.length-1;i>=0;i--){if(S.streakDays[i])streak++;else break;}
+  let streak=0;for(let i=S.streakDays.length-1;i>=0;i--){if(S.streakDays[i])streak++;else break;}
   document.getElementById('streakCount').textContent=streak;
   const done=S.streakDays.filter(Boolean).length;
   document.getElementById('weekDone').textContent=`${done}/7 COMPLETE`;
-
-  // figure out today's index (0=Mon...6=Sun)
-  const todayJS=new Date().getDay(); // 0=Sun,1=Mon...6=Sat
-  const todayIdx=todayJS===0?6:todayJS-1; // convert to Mon=0...Sun=6
-
+  const todayJS=new Date().getDay();const todayIdx=todayJS===0?6:todayJS-1;
   S.streakDays.forEach((d,i)=>{
     const el=document.createElement('div');
-    let cls='day-box'+(d?' done':'')+(i===todayIdx?' today-marker':'');
-    el.className=cls;
+    el.className='day-box'+(d?' done':'')+(i===todayIdx?' today-marker':'');
     el.innerHTML=`<div class="day-nm">${DNAMES[i]}</div><div class="day-ck">◆</div>`;
     el.onclick=()=>{S.streakDays[i]=!S.streakDays[i];if(S.streakDays[i])recordCal();save();render();};
     c.appendChild(el);
@@ -543,123 +928,98 @@ function renderStreak(){
 // ── CALENDAR ──
 const MONTHS=['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
 let calView='month';
-
 function setCalView(view){
   calView=view;S.calView=view;
   document.getElementById('btnMonth').classList.toggle('active',view==='month');
   document.getElementById('btnYear').classList.toggle('active',view==='year');
-  const mv=document.getElementById('calMonthView');
-  const yv=document.getElementById('calYearView');
+  const mv=document.getElementById('calMonthView');const yv=document.getElementById('calYearView');
   if(view==='month'){mv.classList.remove('hidden');mv.style.display='';yv.classList.remove('active');}
   else{mv.classList.add('hidden');mv.style.display='none';yv.classList.add('active');}
   renderCalendar();
 }
-
-function calNav(dir){
-  S.calM+=dir;
-  if(S.calM>11){S.calM=0;S.calY++;}
-  if(S.calM<0){S.calM=11;S.calY--;}
-  save();renderCalendar();
-}
-
-function renderCalendar(){
-  if(calView==='year') renderYearView();
-  else renderMonthView();
-}
-
+function calNav(dir){S.calM+=dir;if(S.calM>11){S.calM=0;S.calY++;}if(S.calM<0){S.calM=11;S.calY--;}save();renderCalendar();}
+function renderCalendar(){if(calView==='year')renderYearView();else renderMonthView();}
 function renderMonthView(){
   const y=S.calY,m=S.calM;
   document.getElementById('calMonthName').textContent=`${MONTHS[m]} ${y}`;
   const grid=document.getElementById('calGrid');grid.innerHTML='';
-  const firstDay=new Date(y,m,1).getDay();
-  const days=new Date(y,m+1,0).getDate();
-  const today=new Date();
-  const isThisMonth=(today.getFullYear()===y&&today.getMonth()===m);
+  const firstDay=new Date(y,m,1).getDay();const days=new Date(y,m+1,0).getDate();
+  const today=new Date();const isThisMonth=(today.getFullYear()===y&&today.getMonth()===m);
   for(let i=0;i<firstDay;i++){const c=document.createElement('div');c.className='cal-cell empty';grid.appendChild(c);}
   for(let d=1;d<=days;d++){
-    const dk=dateKey(y,m,d);
-    const count=S.calData[dk]||0;
-    const isToday=isThisMonth&&today.getDate()===d;
-    const cell=document.createElement('div');
-    const lc=getLevelClass(count);
+    const dk=dateKey(y,m,d);const count=S.calData[dk]||0;const isToday=isThisMonth&&today.getDate()===d;
+    const cell=document.createElement('div');const lc=getLevelClass(count);
     cell.className=`cal-cell ${lc}${isToday?' today-cell':''}`;
-    cell.title=`${d} ${MONTHS[m].slice(0,3)}: ${count} activities`;
     grid.appendChild(cell);
   }
 }
-
 function renderYearView(){
-  const yg=document.getElementById('yearGrid');yg.innerHTML='';
-  const y=S.calY;
+  const yg=document.getElementById('yearGrid');yg.innerHTML='';const y=S.calY;
   for(let m=0;m<12;m++){
     const mm=document.createElement('div');mm.className='mini-month';
-    const days=new Date(y,m+1,0).getDate();
-    const firstDay=new Date(y,m,1).getDay();
-    let cells='';
-    for(let i=0;i<firstDay;i++)cells+=`<div class="mini-cell empty"></div>`;
-    for(let d=1;d<=days;d++){
-      const count=S.calData[dateKey(y,m,d)]||0;
-      const lc=getLevelClass(count,'ml');
-      cells+=`<div class="mini-cell ${lc}"></div>`;
-    }
+    const days=new Date(y,m+1,0).getDate();const firstDay=new Date(y,m,1).getDay();
+    let cells='';for(let i=0;i<firstDay;i++)cells+=`<div class="mini-cell empty"></div>`;
+    for(let d=1;d<=days;d++){const count=S.calData[dateKey(y,m,d)]||0;const lc=getLevelClass(count,'ml');cells+=`<div class="mini-cell ${lc}"></div>`;}
     mm.innerHTML=`<div class="mini-month-name">${MONTHS[m].slice(0,3)}</div><div class="mini-grid">${cells}</div>`;
-    mm.onclick=()=>{S.calM=m;setCalView('month');save();};
-    yg.appendChild(mm);
+    mm.onclick=()=>{S.calM=m;setCalView('month');save();};yg.appendChild(mm);
   }
 }
+function todayKey(){const n=new Date();return`${n.getFullYear()}-${String(n.getMonth()+1).padStart(2,'0')}-${String(n.getDate()).padStart(2,'0')}`;}
+function dateKey(y,m,d){return`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;}
+function recordCal(){const k=todayKey();S.calData[k]=(S.calData[k]||0)+1;}
+function getLevelClass(count,prefix='l'){if(!count)return'';if(count<=2)return prefix+'1';if(count<=4)return prefix+'2';if(count<=7)return prefix+'3';return prefix+'4';}
 
-// ── PINCH TO ZOOM (touch events) ──
-let pinchStartDist=0;
-let isPinching=false;
-function setupPinch(){
-  const calArea=document.querySelector('.cal-container');
-  if(!calArea)return;
-  calArea.addEventListener('touchstart',e=>{
-    if(e.touches.length===2){
-      isPinching=true;
-      pinchStartDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
-    }
-  },{passive:true});
-  calArea.addEventListener('touchmove',e=>{
-    if(!isPinching||e.touches.length<2)return;
-    const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
-    const ratio=dist/pinchStartDist;
-    if(ratio<0.75&&calView==='month'){setCalView('year');}
-    else if(ratio>1.3&&calView==='year'){setCalView('month');}
-  },{passive:true});
-  calArea.addEventListener('touchend',()=>{isPinching=false;},{passive:true});
-}
+// ── NEW DAILY QUESTS ──
+function renderNewQuests(){
+  const ql=document.getElementById('newDailyQuestList');if(!ql)return;ql.innerHTML='';
+  const mult=getMultiplier(S.dayStreak||0);
 
-// ── QUESTS ──
-function renderQuests(){renderQL('dailyQuestList',S.quests.daily,false);renderQL('bossQuestList',S.quests.boss,true);}
-function renderQL(id,quests,isBoss){
-  const c=document.getElementById(id);c.innerHTML='';
-  quests.forEach((q,i)=>{
-    const el=document.createElement('div');
-    el.className=`quest-card${q.done?' done':''}${isBoss?' boss':''}`;
-    el.innerHTML=`${isBoss?'<div class="boss-tag">◆ WEEKLY BOSS</div>':''}
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:9px">
-        <div><div class="quest-name">${q.name}</div><div class="quest-desc">${q.desc}</div></div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px">
-          <div class="quest-xp">+${q.xp} XP</div>
-          <div class="quest-check">${q.done?'✓':''}</div>
-        </div>
-      </div>`;
-    el.onclick=()=>toggleQuest(isBoss?'boss':'daily',i);
-    c.appendChild(el);
+  // Multiplier banner
+  const banner=document.createElement('div');banner.className='mult-banner';
+  banner.style.setProperty('--mult-color',mult.color);
+  banner.style.borderColor=`${mult.color}30`;
+  banner.innerHTML=`<div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim);letter-spacing:2px;margin-bottom:3px">STREAK MULTIPLIER</div><div style="font-family:'Cinzel',serif;font-size:26px;font-weight:900;color:${mult.color};line-height:1">${mult.label}</div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${mult.color};opacity:0.8;margin-top:3px">${mult.tier}</div></div><div style="text-align:right"><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim);letter-spacing:1px">DAY STREAK</div><div style="font-family:'Cinzel',serif;font-size:40px;font-weight:900;color:white;line-height:1">${S.dayStreak||0}</div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim)">CONSECUTIVE DAYS</div></div>`;
+  ql.appendChild(banner);
+
+  const doneCount=DAILY_QUESTS.filter(q=>S.questsDone[q.id]).length;
+  const stEl=document.createElement('div');stEl.className='st';
+  stEl.innerHTML=`◆ DAILY MISSIONS<span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:${doneCount===5?'var(--green-bright)':'var(--text-dim)'};">${doneCount}/5 COMPLETE</span>`;
+  ql.appendChild(stEl);
+
+  DAILY_QUESTS.forEach(q=>{
+    const done=!!S.questsDone[q.id];
+    const effXP=Math.round(q.xp*mult.val);
+    const el=document.createElement('div');el.className='quest-card'+(done?' done':'');
+    el.innerHTML=`<div style="display:flex;gap:10px;align-items:center"><div style="font-size:22px;min-width:30px">${q.icon}</div><div style="flex:1"><div class="quest-name">${q.name}</div><div class="quest-desc">${q.desc}</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px"><div class="quest-xp">+${done?q.xp:effXP} XP</div><div style="font-size:10px;color:var(--gold);font-family:'Share Tech Mono',monospace">+${q.coins}¢</div><div class="quest-check">${done?'✓':''}</div></div></div>`;
+    el.onclick=()=>{if(!done)completeNewQuest(q.id);};
+    ql.appendChild(el);
+  });
+
+  // Random event
+  const re=document.getElementById('randomEventSection');if(!re)return;re.innerHTML='';
+  const relbl=document.createElement('div');relbl.className='st g';relbl.textContent='◆ RANDOM ENCOUNTER';re.appendChild(relbl);
+  if(S.randomEvent){
+    const evt=S.randomEvent;const rc=RARITY_COLORS[evt.rarity]||'#9ca3af';const done=S.randomEventDone;
+    const evEl=document.createElement('div');evEl.className='rand-event'+(done?' done':'');
+    evEl.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px"><div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${rc};letter-spacing:2px;margin-bottom:4px">[${evt.rarity}]</div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:${done?'var(--green-bright)':'white'}">${evt.title}</div></div><div style="font-size:28px">${evt.icon}</div></div><div style="font-size:12px;color:var(--text-dim);margin-bottom:11px;line-height:1.5">${evt.desc}</div><div style="display:flex;justify-content:space-between;padding:6px 10px;background:rgba(255,255,255,0.04);margin-bottom:10px"><span style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--green-bright)">+${evt.xp} XP</span><span style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--gold)">+${evt.coins} COINS</span></div>${done?`<div style="text-align:center;font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--green-bright);letter-spacing:2px">✓ ENCOUNTER CLEARED</div>`:`<button onclick="completeRandomEvent()" style="width:100%;padding:10px;background:linear-gradient(135deg,var(--purple-dim),var(--purple-mid));border:1px solid var(--purple);color:white;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;cursor:pointer">▸ MARK AS COMPLETE</button>`}`;
+    re.appendChild(evEl);
+  }else{
+    const emp=document.createElement('div');emp.className='empty-state';emp.innerHTML='🌙<br>No random encounter today<br><span style="font-size:10px;opacity:0.5">65% SPAWN RATE — CHECK TOMORROW</span>';re.appendChild(emp);
+  }
+
+  // Boss quests
+  const bs=document.getElementById('bossQuestSection');if(!bs)return;bs.innerHTML='';
+  const blbl=document.createElement('div');blbl.className='st g';blbl.textContent='◆ WEEKLY BOSS';bs.appendChild(blbl);
+  S.quests.boss.forEach((q,i)=>{
+    const el=document.createElement('div');el.className=`quest-card${q.done?' done':''} boss`;
+    el.innerHTML=`<div class="boss-tag">◆ WEEKLY BOSS</div><div style="display:flex;justify-content:space-between;align-items:flex-start;gap:9px"><div><div class="quest-name">${q.name}</div><div class="quest-desc">${q.desc}</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:5px"><div class="quest-xp">+${q.xp} XP</div><div class="quest-check">${q.done?'✓':''}</div></div></div>`;
+    el.onclick=()=>toggleBossQuest(i);bs.appendChild(el);
   });
 }
-function toggleQuest(type,i){
-  const q=S.quests[type][i];
-  if(!q.done){
-    q.done=true;S.xp+=q.xp;
-    if(S.stats[q.stat]){S.stats[q.stat].xp+=q.xp;S.stats[q.stat].activities.push({name:q.name,xp:q.xp,date:new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short'})});}
-    recordCal();
-  }else{
-    q.done=false;S.xp=Math.max(0,S.xp-q.xp);
-    if(S.stats[q.stat])S.stats[q.stat].xp=Math.max(0,S.stats[q.stat].xp-q.xp);
-  }
-  save();render();
+function toggleBossQuest(i){
+  const q=S.quests.boss[i];
+  if(!q.done){q.done=true;speak(`Boss quest complete. ${q.name}.`);notify(`⚔️ BOSS CLEARED — ${q.name}`,'complete');gainXP(q.xp,q.name,q.stat);}
+  else{q.done=false;S.xp=Math.max(0,S.xp-q.xp);if(S.stats[q.stat])S.stats[q.stat].xp=Math.max(0,S.stats[q.stat].xp-q.xp);save();render();}
 }
 
 // ── GYM ──
@@ -698,6 +1058,134 @@ function updateMuscleMap(exs){
 }
 function toggleMuscle(g){const el=document.getElementById('m-'+g);const lbl=el?.getAttribute('data-label')||g;document.getElementById('muscleStatus').textContent=lbl.toUpperCase();}
 
+// ── SKILLS TAB ──
+function renderSkillsContent(){
+  const c=document.getElementById('skillsContent');if(!c)return;c.innerHTML='';
+  const lbl=document.createElement('div');lbl.className='st';lbl.textContent='◆ REAL-LIFE SKILL TREE';c.appendChild(lbl);
+  SKILL_BRANCHES.forEach(branch=>{
+    const br=document.createElement('div');br.className='skill-branch';
+    const unlockedCount=branch.nodes.filter(n=>(S.unlockedSkills||[]).includes(n.id)).length;
+    br.innerHTML=`<div class="skill-branch-header"><span style="font-size:15px">${branch.icon}</span><span style="font-family:'Cinzel',serif;font-size:10px;font-weight:700;color:${branch.color};letter-spacing:2px">${branch.label}</span><span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-dim);margin-left:auto">${unlockedCount}/${branch.nodes.length}</span></div>`;
+    const row=document.createElement('div');row.className='skill-nodes-row';
+    branch.nodes.forEach((node,idx)=>{
+      const unlocked=(S.unlockedSkills||[]).includes(node.id);
+      const reqMet=!node.req||(S.unlockedSkills||[]).includes(node.req);
+      const affordable=S.xp>=node.xpCost;
+      const canUnlock=!unlocked&&reqMet&&affordable;
+      const locked=!unlocked&&(!reqMet||!affordable);
+      const nd=document.createElement('div');
+      nd.className=`skill-node ${unlocked?'unlocked':locked?'locked':'available'}`;
+      nd.style.setProperty('--ncolor',branch.color);
+      if(unlocked)nd.style.borderColor=branch.color;
+      nd.title=node.desc;
+      nd.innerHTML=`<div class="skill-node-name">${node.name}</div><div class="skill-node-cost">${unlocked?'✓ DONE':node.xpCost===0?'FREE':`${node.xpCost.toLocaleString()} XP`}</div>`;
+      if(canUnlock){nd.onclick=()=>unlockSkillNode(node.id);nd.title=node.desc+' (tap to unlock)';}
+      row.appendChild(nd);
+      if(idx<branch.nodes.length-1){const arr=document.createElement('div');arr.className='skill-arrow';arr.style.color=unlocked?branch.color:'rgba(255,255,255,0.15)';arr.textContent='→';row.appendChild(arr);}
+    });
+    br.appendChild(row);c.appendChild(br);
+  });
+  const blbl=document.createElement('div');blbl.className='st g';blbl.style.marginTop='20px';blbl.textContent=`◆ INVENTORY — ${(S.badges||[]).length}/${BADGE_DEFS.length} ITEMS`;c.appendChild(blbl);
+  const grid=document.createElement('div');grid.className='badge-grid';
+  BADGE_DEFS.forEach(b=>{
+    const owned=(S.badges||[]).includes(b.id);
+    const el=document.createElement('div');el.className=`badge-item ${owned?'owned':'locked'}`;
+    el.innerHTML=`<div style="font-size:26px;margin-bottom:7px;filter:${owned?'none':'grayscale(100%)'}">${b.icon}</div><div style="font-size:12px;font-weight:600;color:${owned?'var(--text)':'var(--text-dim)'};margin-bottom:4px">${b.name}</div><div style="font-size:11px;color:var(--text-dim);line-height:1.4">${b.desc}</div>`;
+    grid.appendChild(el);
+  });
+  c.appendChild(grid);
+}
+
+// ── SYSTEM TAB ──
+function renderSysContent(){
+  const c=document.getElementById('sysContent');if(!c)return;c.innerHTML='';
+  // Rank display
+  const rlbl=document.createElement('div');rlbl.className='st';rlbl.textContent='◆ RANK PROGRESSION';c.appendChild(rlbl);
+  const currentRank=getRank(S.xp);const nextRank=getNextRank(S.xp);
+  const rankDsp=document.createElement('div');
+  rankDsp.style.cssText='text-align:center;padding:18px 14px;margin-bottom:14px;background:var(--dark2);border:1px solid var(--border);position:relative;overflow:hidden;';
+  const xpPct=nextRank?Math.min(100,((S.xp-currentRank.minXP)/(nextRank.minXP-currentRank.minXP))*100):100;
+  rankDsp.innerHTML=`<div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,${currentRank.color},transparent)"></div><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--text-dim);letter-spacing:3px;margin-bottom:10px">CURRENT RANK</div><div style="font-family:'Cinzel',serif;font-size:50px;font-weight:900;color:${currentRank.color};text-shadow:0 0 40px ${currentRank.glow};letter-spacing:4px;line-height:1">${currentRank.name}</div><div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text-dim);margin-top:8px">${S.xp.toLocaleString()} XP${nextRank?` — ${(nextRank.minXP-S.xp).toLocaleString()} to ${nextRank.name}`:' — MAX RANK'}</div>${nextRank?`<div style="margin-top:9px;height:4px;background:var(--dark3);overflow:hidden"><div style="height:100%;width:${xpPct}%;background:${currentRank.color};box-shadow:0 0 6px ${currentRank.color};transition:width 1s ease"></div></div>`:''}`;
+  c.appendChild(rankDsp);
+  RANKS.forEach(r=>{
+    const isPast=S.xp>=r.minXP;const isCur=r.name===currentRank.name;
+    const el=document.createElement('div');el.className=`rank-rung${isCur?' current':''}${isPast?' achieved':''}`;
+    el.style.setProperty('--rcolor',r.color);
+    el.innerHTML=`<div style="font-family:'Cinzel',serif;font-size:${r.name==='MONARCH'?11:18}px;font-weight:900;color:${isPast?r.color:'rgba(255,255,255,0.15)'};min-width:80px">${r.name}</div><div style="font-family:'Share Tech Mono',monospace;font-size:11px;color:${isPast?'var(--text)':'var(--text-dim)'}">${r.minXP.toLocaleString()} XP</div><div style="font-size:${isPast?16:14}px">${isPast?'✓':'🔒'}</div>`;
+    c.appendChild(el);
+  });
+
+  // AI Quest
+  const ailbl=document.createElement('div');ailbl.className='st g';ailbl.style.marginTop='20px';ailbl.textContent='◆ AI QUEST GENERATOR';c.appendChild(ailbl);
+  const aiWrap=document.createElement('div');aiWrap.style.cssText='background:var(--dark2);border:1px solid var(--border);padding:14px;margin-bottom:16px;';
+  aiWrap.innerHTML=`<div style="font-size:12px;color:var(--text-dim);margin-bottom:13px;line-height:1.6">The System generates a personalized quest based on your current rank, streak, and goals. Powered by Claude AI — falls back to local generator on GitHub Pages.</div>${S.aiQuest?buildAIQuestHTML(S.aiQuest):''}<button id="genAIBtn" onclick="generateAIQuest()" style="width:100%;padding:12px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(124,58,237,0.08));border:1px solid rgba(0,212,255,0.35);color:#00d4ff;font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;cursor:pointer;transition:all 0.2s">▸ GENERATE QUEST</button>`;
+  c.appendChild(aiWrap);
+
+  // Titles
+  const tlbl=document.createElement('div');tlbl.className='st c';tlbl.textContent=`◆ HUNTER TITLES — ${(S.titles||[]).length}/${TITLE_DEFS.length}`;c.appendChild(tlbl);
+  TITLE_DEFS.forEach(t=>{
+    const owned=(S.titles||[]).includes(t.name);const active=S.activeTitle===t.name;
+    const el=document.createElement('div');el.className=`title-item${active?' active':''}${owned?' owned':''}`;
+    el.innerHTML=`<div><div style="font-size:14px;font-weight:600;color:${active?'var(--cyan)':owned?'var(--text)':'var(--text-dim)'}">${t.name}</div><div style="font-size:11px;color:var(--text-dim);margin-top:1px">${t.req}</div></div><div>${active?`<span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--cyan);border:1px solid rgba(0,212,255,0.4);padding:2px 7px">ACTIVE</span>`:owned?'<span style="font-size:11px;color:var(--text-dim)">tap</span>':'<span style="font-size:15px">🔒</span>'}</div>`;
+    if(owned)el.onclick=()=>setActiveTitle(t.name);
+    c.appendChild(el);
+  });
+
+  // Voice
+  const vlbl=document.createElement('div');vlbl.className='st g';vlbl.style.marginTop='16px';vlbl.textContent='◆ SYSTEM VOICE';c.appendChild(vlbl);
+  const vEl=document.createElement('div');vEl.style.cssText='background:var(--dark2);border:1px solid var(--border);padding:13px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;';
+  vEl.innerHTML=`<div><div style="font-family:'Cinzel',serif;font-size:12px;color:var(--text)">BROWSER SPEECH SYNTHESIS</div><div style="font-size:11px;color:var(--text-dim);margin-top:3px">Low pitch — ${S.voiceEnabled?'ACTIVE':'INACTIVE'}</div></div><button onclick="toggleVoice()" style="background:${S.voiceEnabled?'rgba(0,212,255,0.12)':'rgba(255,255,255,0.04)'};border:1px solid ${S.voiceEnabled?'var(--cyan)':'var(--border)'};color:${S.voiceEnabled?'var(--cyan)':'var(--text-dim)'};font-family:'Cinzel',serif;font-size:10px;padding:7px 16px;cursor:pointer;letter-spacing:2px">${S.voiceEnabled?'● ON':'○ OFF'}</button>`;
+  c.appendChild(vEl);
+
+  // Data
+  const dlbl=document.createElement('div');dlbl.className='st';dlbl.textContent='◆ DATA';c.appendChild(dlbl);
+  const expBtn=document.createElement('button');expBtn.className='data-btn export';expBtn.innerHTML='◆ EXPORT DATA';expBtn.onclick=exportData;c.appendChild(expBtn);
+  const impLbl=document.createElement('label');impLbl.className='data-btn import';impLbl.innerHTML='◆ IMPORT DATA<input type="file" id="importFile" accept=".json" onchange="importData(event)" style="display:none">';c.appendChild(impLbl);
+  const hint=document.createElement('div');hint.className='data-hint';hint.textContent='EXPORT MONTHLY → UPLOAD TO CLAUDE → GET ANALYSIS + UPDATES';c.appendChild(hint);
+}
+function buildAIQuestHTML(quest){
+  if(!quest)return'';const rc=RARITY_COLORS[quest.rarity]||'#9ca3af';
+  return`<div class="ai-quest-card"><div style="font-family:'Share Tech Mono',monospace;font-size:8px;color:${rc};letter-spacing:2px;margin-bottom:5px">[${quest.rarity}] SYSTEM DIRECTIVE</div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:white;margin-bottom:7px">${quest.title}</div><div style="font-size:12px;color:var(--text);margin-bottom:7px">${quest.desc}</div><div class="ai-reason">"${quest.reason}"</div><div style="display:flex;gap:8px"><button onclick="completeAIQuest()" style="flex:1;padding:9px;background:linear-gradient(135deg,var(--purple-dim),var(--purple-mid));border:1px solid var(--purple);color:white;font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;cursor:pointer">COMPLETE +${quest.xp} XP</button><button onclick="dismissAIQuest()" style="padding:9px 13px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--text-dim);font-size:13px;cursor:pointer">✕</button></div></div>`;
+}
+async function generateAIQuest(){
+  const btn=document.getElementById('genAIBtn');
+  if(btn){btn.textContent='▸ CONNECTING TO SYSTEM...';btn.disabled=true;btn.style.opacity='0.5';}
+  const ctx=`Player: Saksham, 21, HCL Graduate Trainee on PepsiCo account (Global Service Desk, 8 months). XP: ${S.xp}, Rank: ${S.rank||'E'}, Level: ${S.level}, Day Streak: ${S.dayStreak||0}. Gym sessions total: ${S.gymCount||0}. Study sessions: ${S.studyCount||0}. Quests done today: ${DAILY_QUESTS.filter(q=>S.questsDone[q.id]).map(q=>q.name).join(', ')||'none'}. Goals: BA transition via Power BI+SQL, 75kg fitness target (~88kg now), long-term consulting. Mindset: law of detachment, faith, Harvey Specter inspiration.`;
+  let quest=null;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:'You are THE SYSTEM from Solo Leveling — cold, omniscient, results-only. Generate one hyper-personalized quest for this exact player. Respond ONLY with valid JSON (no markdown, no preamble): {"title":"QUEST TITLE","desc":"specific actionable task","xp":50,"coins":15,"rarity":"COMMON|UNCOMMON|RARE|LEGENDARY","reason":"one sentence why this quest for this player right now"}',messages:[{role:'user',content:ctx}]})});
+    if(res.ok){const data=await res.json();const txt=data.content?.find(b=>b.type==='text')?.text||'';quest=JSON.parse(txt.replace(/```json|```/g,'').trim());}
+    else{throw new Error('API unavailable');}
+  }catch(e){quest=generateLocalQuest();}
+  S.aiQuest=quest;
+  speak('New directive received from the system. Check your quest log.');
+  notify('🤖 AI QUEST ASSIGNED BY THE SYSTEM','ai');
+  save();renderSysContent();
+}
+function generateLocalQuest(){
+  const streak=S.dayStreak||0;
+  const pool=[
+    {title:'LIMIT BREAK: EXTRA SETS',    desc:'Add 2 extra sets to every gym exercise today.',                  xp:80, coins:20,rarity:'UNCOMMON',reason:'Your streak shows momentum — push past the normal ceiling.'},
+    {title:'SILENT HOUR PROTOCOL',        desc:'1 hour of deep work with your phone in another room.',           xp:60, coins:15,rarity:'COMMON',  reason:'Distraction is the enemy of a BA transition.'},
+    {title:'CALORIC PRECISION',           desc:'Track every meal today and stay under 2100 calories.',           xp:50, coins:12,rarity:'COMMON',  reason:'The 75kg target requires daily nutritional awareness.'},
+    {title:'NETWORK STRIKE',              desc:'Send 1 personalized LinkedIn connection request today.',          xp:70, coins:18,rarity:'UNCOMMON',reason:'Fortune 500 access is built one connection at a time.'},
+    {title:'SYSTEM SCAN: DEEP REFLECTION',desc:'Write a 200+ word reflection on this week in your LOG.',        xp:55, coins:14,rarity:'COMMON',  reason:'Self-awareness is the first skill of a great analyst.'},
+    {title:"MONARCH'S PREPARATION",       desc:'Research 1 open BA role and note the skill requirements.',       xp:90, coins:22,rarity:'RARE',    reason:'The transition needs both skill-building AND market research.'},
+    {title:'IRON PROTOCOL: HYDRATION',    desc:'Drink 3 litres of water. The body is the vessel.',              xp:45, coins:12,rarity:'COMMON',  reason:'Hydration directly impacts focus and gym performance.'},
+    {title:'DISCIPLINE LOCK',             desc:'No processed food, no excuses. Cook or eat clean today.',        xp:60, coins:15,rarity:'COMMON',  reason:'Diet consistency is your highest-leverage health lever now.'},
+    streak>=7?{title:'VETERAN HUNTER CHALLENGE',desc:'Complete ALL 5 daily quests before 9 PM tonight.',        xp:120,coins:30,rarity:'RARE',    reason:'Your streak proves consistency — now prove you can be fast too.'}:null,
+    streak>=14?{title:'SOVEREIGN TRIAL',desc:'Plan the structure of your Power BI portfolio presentation.',     xp:150,coins:40,rarity:'LEGENDARY',reason:'You are consistent enough to start thinking about the end game.'}:null,
+  ].filter(Boolean);
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+function completeAIQuest(){
+  if(!S.aiQuest)return;const q=S.aiQuest;S.coins=(S.coins||0)+(q.coins||0);
+  speak('AI-assigned quest complete. The system approves.');notify(`✅ AI QUEST COMPLETE — +${q.xp} XP`,'quest');
+  S.aiQuest=null;gainXP(q.xp||50,q.title,null);save();renderSysContent();
+}
+function dismissAIQuest(){S.aiQuest=null;save();renderSysContent();}
+function toggleVoice(){S.voiceEnabled=!S.voiceEnabled;save();renderSysContent();if(S.voiceEnabled)speak('System voice activated.');}
+
 // ── LOG ──
 function renderLog(){
   const now=new Date();
@@ -726,8 +1214,7 @@ function importData(e){
   const file=e.target.files[0];if(!file)return;
   const reader=new FileReader();
   reader.onload=ev=>{try{S=JSON.parse(ev.target.result);save();render();alert('✓ Data restored. Welcome back, Player.');}catch(err){alert('Invalid file.');}};
-  reader.readAsText(file);
-  e.target.value='';
+  reader.readAsText(file);e.target.value='';
 }
 
 // ── MODAL ──
@@ -744,30 +1231,42 @@ function closeModal(e){if(e.target.id==='statModal')closeModalBtn();}
 function closeModalBtn(){document.getElementById('statModal').classList.remove('open');}
 
 // ── TABS ──
+const TABS_ORDER=['dashboard','quests','gym','skills','log','system'];
 function switchTab(name){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',TABS_ORDER[i]===name));
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  const tabs=['dashboard','quests','gym','log','data'];
-  document.querySelectorAll('.tab')[tabs.indexOf(name)].classList.add('active');
   document.getElementById(`screen-${name}`).classList.add('active');
+  if(name==='quests')renderNewQuests();
+  if(name==='skills')renderSkillsContent();
+  if(name==='system')renderSysContent();
 }
 
-// ── BOOT ──
+// ── PINCH TO ZOOM ──
+let pinchStartDist=0,isPinching=false;
+function setupPinch(){
+  const calArea=document.querySelector('.cal-container');if(!calArea)return;
+  calArea.addEventListener('touchstart',e=>{if(e.touches.length===2){isPinching=true;pinchStartDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}},{passive:true});
+  calArea.addEventListener('touchmove',e=>{if(!isPinching||e.touches.length<2)return;const dist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);const ratio=dist/pinchStartDist;if(ratio<0.75&&calView==='month'){setCalView('year');}else if(ratio>1.3&&calView==='year'){setCalView('month');}},{passive:true});
+  calArea.addEventListener('touchend',()=>{isPinching=false;},{passive:true});
+}
+
+// ═══════════════════════════════════════════════════
+// BOOT
+// ═══════════════════════════════════════════════════
 window.addEventListener('load',()=>{
   load();
-  // restore calView
+  dailyReset();
   calView=S.calView||'month';
   render();
   setupPinch();
-  setTimeout(()=>{document.getElementById('bootScreen').classList.add('hidden');setTimeout(()=>document.getElementById('bootScreen').remove(),800);},2200);
+  setTimeout(()=>{
+    document.getElementById('bootScreen').classList.add('hidden');
+    setTimeout(()=>document.getElementById('bootScreen').remove(),800);
+  },2200);
 });
-  
-// SERVICE WORKER REGISTER
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/system-app/service-worker.js")
-    .then(() => console.log("Service Worker Registered"))
-    .catch((err) => console.log("SW failed:", err));
+
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/system-app/service-worker.js').then(()=>console.log('SW Registered')).catch(err=>console.log('SW failed:',err));
 }
 </script>
 </body>
