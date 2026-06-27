@@ -495,11 +495,12 @@ const RANKS = [
 ];
 
 const DAILY_QUESTS = [
-  {id:'wake8',  icon:'🌅', name:'Rise Before 8 AM',    desc:'The early hunter claims the world',       xp:50,  coins:10, stat:'discipline'},
-  {id:'gym',    icon:'⚔️', name:'Daily Gym Conquered', desc:'Push. Pull. Legs. No excuses.',            xp:80,  coins:20, stat:'strength'},
-  {id:'nojunk', icon:'🥗', name:'Zero Junk Food',      desc:'Fuel the machine with intent',             xp:40,  coins:10, stat:'discipline'},
-  {id:'study',  icon:'📊', name:'Study 2+ Hours',      desc:'Power BI or SQL — sharpen the blade',     xp:70,  coins:15, stat:'intelligence'},
-  {id:'read',   icon:'📖', name:'Read 10 Pages',        desc:'The mind is a weapon. Keep it loaded.',   xp:30,  coins:8,  stat:'intelligence'},
+  {id:'wake8',   icon:'🌅', name:'Rise Before 8 AM',    desc:'The early hunter claims the world',          xp:50, coins:10, stat:'discipline'},
+  {id:'gym',     icon:'⚔️', name:'Daily Gym Conquered', desc:'Push. Pull. Legs. No excuses.',               xp:80, coins:20, stat:'strength'},
+  {id:'nojunk',  icon:'🥗', name:'Zero Junk Food',      desc:'Ambition is built on discipline at the table',xp:40, coins:10, stat:'ambition'},
+  {id:'study',   icon:'📊', name:'Study 2+ Hours',      desc:'Power BI or SQL — sharpen the blade',        xp:70, coins:15, stat:'intelligence'},
+  {id:'read',    icon:'📖', name:'Read 10 Pages',        desc:'Grow the mind, nourish the spirit',          xp:30, coins:8,  stat:'spirit'},
+  {id:'connect', icon:'💬', name:'LinkedIn / Network',  desc:'Post, comment, or connect with 1 person',    xp:45, coins:12, stat:'charisma'},
 ];
 
 const RANDOM_EVENTS = [
@@ -891,7 +892,7 @@ function renderHeader(){
   const mult=getMultiplier(S.dayStreak||0);
   const sd=document.getElementById('streakDisp');sd.textContent=`🔥 ${S.dayStreak||0}d ${mult.label}`;sd.style.color=mult.color;
   const done=DAILY_QUESTS.filter(q=>S.questsDone[q.id]).length;
-  const qd=document.getElementById('questsDisp');qd.textContent=`📋 ${done}/5`;qd.style.color=done===5?'var(--green-bright)':'var(--text-dim)';
+  const qd=document.getElementById('questsDisp');qd.textContent=`📋 ${done}/6`;qd.style.color=done===6?'var(--green-bright)':'var(--text-dim)';
   const tl=document.getElementById('activeTitleLbl');if(tl)tl.textContent=S.activeTitle||'The Awakened';
 }
 
@@ -983,7 +984,7 @@ function renderNewQuests(){
 
   const doneCount=DAILY_QUESTS.filter(q=>S.questsDone[q.id]).length;
   const stEl=document.createElement('div');stEl.className='st';
-  stEl.innerHTML=`◆ DAILY MISSIONS<span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:${doneCount===5?'var(--green-bright)':'var(--text-dim)'};">${doneCount}/5 COMPLETE</span>`;
+  stEl.innerHTML=`◆ DAILY MISSIONS<span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:${doneCount===6?'var(--green-bright)':'var(--text-dim)'};">${doneCount}/6 COMPLETE</span>`;
   ql.appendChild(stEl);
 
   DAILY_QUESTS.forEach(q=>{
