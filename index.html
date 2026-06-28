@@ -14,18 +14,18 @@
       --gold:#c9a84c; --gold-bright:#f0c84a; --gold-dim:#6b4f1a; --gold-glow:rgba(201,168,76,0.3);
       --purple:#9b59f5; --purple-bright:#c084fc; --purple-dim:#4a1d96; --purple-mid:#7c3aed; --purple-glow:rgba(155,89,245,0.4);
       --green:#22c55e; --green-bright:#4ade80; --green-dim:#166534; --green-glow:rgba(34,197,94,0.3);
-      --black:#07050f; --dark:#0e0b18; --dark2:#130e22; --dark3:#1c1530;
-      --text:#e8e0f8; --text-dim:#6b5f88; --red:#f87171; --red-glow:rgba(248,113,113,0.4);
+      --black:#030c1c; --dark:#07122b; --dark2:#0b1a38; --dark3:#102045;
+      --text:#d8e8ff; --text-dim:#3d5278; --red:#f87171; --red-glow:rgba(248,113,113,0.4);
       --cyan:#00d4ff; --cyan-glow:rgba(0,212,255,0.4);
-      --border:rgba(155,89,245,0.18); --border-gold:rgba(201,168,76,0.25);
+      --border:rgba(80,120,255,0.22); --border-gold:rgba(201,168,76,0.25);
     }
     *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
     body{background:var(--black);color:var(--text);font-family:'Rajdhani',sans-serif;min-height:100vh;overflow-x:hidden;}
-    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 90% 45% at 50% -5%,rgba(124,58,237,0.13) 0%,transparent 55%),radial-gradient(ellipse 50% 25% at 50% 105%,rgba(201,168,76,0.07) 0%,transparent 55%);pointer-events:none;z-index:0;}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 100% 50% at 50% -5%,rgba(30,80,220,0.18) 0%,rgba(100,50,220,0.10) 35%,transparent 60%),radial-gradient(ellipse 60% 30% at 10% 50%,rgba(0,100,255,0.06) 0%,transparent 50%),radial-gradient(ellipse 50% 25% at 50% 110%,rgba(0,212,255,0.07) 0%,transparent 55%);pointer-events:none;z-index:0;}
     #app{position:relative;z-index:1;max-width:430px;margin:0 auto;min-height:100vh;padding-bottom:80px;}
 
     /* HEADER */
-    .header{padding:12px 16px 8px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(124,58,237,0.1) 0%,transparent 100%);position:sticky;top:0;z-index:50;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);}
+    .header{padding:12px 16px 8px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,rgba(20,60,200,0.18) 0%,rgba(100,40,220,0.07) 60%,transparent 100%);position:sticky;top:0;z-index:50;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);}
     .header-top{display:flex;justify-content:space-between;align-items:flex-start;}
     .system-label{font-family:'Share Tech Mono',monospace;font-size:8px;color:var(--purple-mid);letter-spacing:3px;}
     .player-name{font-family:'Cinzel',serif;font-size:18px;font-weight:900;background:linear-gradient(130deg,var(--purple-bright) 0%,var(--gold-bright) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 14px rgba(155,89,245,0.5));letter-spacing:3px;}
@@ -62,17 +62,14 @@
     .st.c::after{background:linear-gradient(90deg,rgba(0,212,255,0.2),transparent);}
 
     /* STATS */
-    .stats-grid{display:flex;flex-direction:column;gap:9px;margin-bottom:20px;}
-    .stat-row{display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px;background:var(--dark2);border:1px solid var(--border);transition:all 0.2s;}
-    .stat-row:active{transform:scale(0.99);background:rgba(155,89,245,0.08);}
-    .stat-icon{font-size:15px;min-width:22px;text-align:center;}
-    .stat-info{flex:1;}
-    .stat-name{font-family:'Cinzel',serif;font-size:10px;color:var(--text);letter-spacing:1px;margin-bottom:4px;display:flex;justify-content:space-between;}
-    .stat-name span{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--green-bright);}
-    .stat-bar-wrap{height:4px;background:var(--dark3);border:1px solid var(--border);overflow:hidden;}
-    .stat-bar-fill{height:100%;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
-    .pb{background:linear-gradient(90deg,var(--purple-dim),var(--purple-bright));}
-    .gb{background:linear-gradient(90deg,var(--gold-dim),var(--gold-bright));}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;}
+    .stat-item{background:var(--dark2);border:1px solid var(--border);padding:11px 12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+    .stat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--item-color,var(--purple)),transparent);}
+    .stat-item:active{transform:scale(0.97);}
+    .stat-code{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:5px;}
+    .stat-pts{font-family:'Cinzel',serif;font-size:28px;font-weight:900;line-height:1;}
+    .stat-bar-mini{height:2px;background:var(--dark3);margin-top:6px;overflow:hidden;width:100%;}
+    .stat-bar-mini-fill{height:100%;transition:width 1s ease;}
 
     /* WEEKLY STREAK */
     .streak-block{background:var(--dark2);border:1px solid var(--border);padding:12px;margin-bottom:18px;position:relative;overflow:hidden;}
@@ -400,6 +397,7 @@
       <button class="wtype-btn active" onclick="setWorkout('push',this)">PUSH</button>
       <button class="wtype-btn" onclick="setWorkout('pull',this)">PULL</button>
       <button class="wtype-btn" onclick="setWorkout('legs',this)">LEGS</button>
+      <button class="wtype-btn" onclick="setWorkout('sprint',this)">SPRINT</button>
       <button class="wtype-btn" onclick="setWorkout('rest',this)">REST</button>
     </div>
     <div class="body-section">
@@ -486,12 +484,12 @@
 // ═══════════════════════════════════════════════════
 const RANKS = [
   {name:'E',      minXP:0,     color:'#9ca3af', glow:'rgba(156,163,175,0.35)'},
-  {name:'D',      minXP:500,   color:'#4ade80', glow:'rgba(74,222,128,0.35)'},
-  {name:'C',      minXP:1500,  color:'#60a5fa', glow:'rgba(96,165,250,0.35)'},
-  {name:'B',      minXP:3000,  color:'#c084fc', glow:'rgba(192,132,252,0.35)'},
-  {name:'A',      minXP:6000,  color:'#fb923c', glow:'rgba(251,146,60,0.35)'},
-  {name:'S',      minXP:10000, color:'#f87171', glow:'rgba(248,113,113,0.45)'},
-  {name:'MONARCH',minXP:20000, color:'#00d4ff', glow:'rgba(0,212,255,0.55)'},
+  {name:'D',      minXP:900,   color:'#4ade80', glow:'rgba(74,222,128,0.35)'},
+  {name:'C',      minXP:2500,  color:'#60a5fa', glow:'rgba(96,165,250,0.35)'},
+  {name:'B',      minXP:5500,  color:'#c084fc', glow:'rgba(192,132,252,0.35)'},
+  {name:'A',      minXP:11000, color:'#fb923c', glow:'rgba(251,146,60,0.35)'},
+  {name:'S',      minXP:20000, color:'#f87171', glow:'rgba(248,113,113,0.45)'},
+  {name:'MONARCH',minXP:38000, color:'#00d4ff', glow:'rgba(0,212,255,0.55)'},
 ];
 
 const DAILY_QUESTS = [
@@ -515,6 +513,9 @@ const RANDOM_EVENTS = [
   {id:'re9',rarity:'LEGENDARY',icon:'🌟',title:'HUNTER AWAKENING',         desc:'Complete ALL 5 daily quests + this event.',   xp:200,coins:60},
 ];
 const RARITY_COLORS = {COMMON:'#9ca3af',UNCOMMON:'#4ade80',RARE:'#c084fc',LEGENDARY:'#f59e0b'};
+const STAT_SHORT = {intelligence:'INT',ambition:'AMB',strength:'STR',discipline:'DIS',charisma:'CHA',spirit:'SPI'};
+const STAT_COLORS = {intelligence:'#60a5fa',ambition:'#fb923c',strength:'#ef4444',discipline:'#8b5cf6',charisma:'#f59e0b',spirit:'#00d4ff'};
+function getStatPoints(xp){return Math.max(10,Math.floor(xp/8)+10);}
 
 const TITLE_DEFS = [
   {name:'The Awakened',      req:'Default',          unlock:p=>true},
@@ -617,30 +618,45 @@ let S = {
     type:'push',
     exercises:{
       push:[
-        {name:'Bench Press',     sets:'4×8-10', done:false,muscles:['chest','lshoulder','rshoulder','ltricep','rtricep']},
-        {name:'Incline DB Press',sets:'3×10-12',done:false,muscles:['chest','lshoulder','rshoulder']},
-        {name:'Shoulder Press',  sets:'3×10',   done:false,muscles:['lshoulder','rshoulder','ltricep','rtricep']},
-        {name:'Lateral Raises',  sets:'3×15',   done:false,muscles:['lshoulder','rshoulder']},
-        {name:'Tricep Pushdown', sets:'3×12',   done:false,muscles:['ltricep','rtricep']},
-        {name:'Chest Fly',       sets:'3×12',   done:false,muscles:['chest']},
+        {name:'Bench Press',        sets:'4×6-10 heavy',   done:false,muscles:['chest','lshoulder','rshoulder','ltricep','rtricep'],note:'↑ HGH — keep rest 60s'},
+        {name:'Overhead Press',     sets:'4×6-8 heavy',    done:false,muscles:['lshoulder','rshoulder','ltricep','rtricep','traps'],note:'↑ HGH + upper height'},
+        {name:'Incline DB Press',   sets:'3×10-12',        done:false,muscles:['chest','lshoulder','rshoulder'],note:'Upper chest fullness'},
+        {name:'Lateral Raises',     sets:'3×15',           done:false,muscles:['lshoulder','rshoulder'],note:'Shoulder width'},
+        {name:'Tricep Dips',        sets:'3×10-12',        done:false,muscles:['ltricep','rtricep','chest'],note:'Bodyweight compound'},
+        {name:'Dead Hang',          sets:'3×45-60 sec',    done:false,muscles:['traps','llat','rlat'],note:'↑ Spine decompression — daily'},
       ],
       pull:[
-        {name:'Pull-ups',       sets:'4×6-8', done:false,muscles:['llat','rlat','lbicep','rbicep']},
-        {name:'Barbell Row',    sets:'4×8',   done:false,muscles:['llat','rlat','traps']},
-        {name:'Lat Pulldown',   sets:'3×10',  done:false,muscles:['llat','rlat']},
-        {name:'Face Pulls',     sets:'3×15',  done:false,muscles:['traps','lshoulder','rshoulder']},
-        {name:'Bicep Curl',     sets:'3×12',  done:false,muscles:['lbicep','rbicep']},
-        {name:'Hammer Curl',    sets:'3×12',  done:false,muscles:['lbicep','rbicep','lforearm','rforearm']},
+        {name:'Deadlift',           sets:'4×5-8 heavy',    done:false,muscles:['llat','rlat','traps','lham','rham','glutes'],note:'↑↑ #1 HGH trigger — go heavy'},
+        {name:'Weighted Pull-ups',  sets:'4×6-8',          done:false,muscles:['llat','rlat','lbicep','rbicep','traps'],note:'↑ HGH + back width'},
+        {name:'Barbell Row',        sets:'3×8-10',         done:false,muscles:['llat','rlat','traps','lbicep','rbicep'],note:'Posture + thickness'},
+        {name:'Face Pulls',         sets:'3×15',           done:false,muscles:['traps','lshoulder','rshoulder'],note:'Fixes rounded shoulders → free height'},
+        {name:'Hammer Curl',        sets:'3×12',           done:false,muscles:['lbicep','rbicep','lforearm','rforearm'],note:'Arm thickness'},
+        {name:'Dead Hang',          sets:'3×45-60 sec',    done:false,muscles:['traps','llat','rlat'],note:'↑ Spine decompression — daily'},
       ],
       legs:[
-        {name:'Barbell Squat',     sets:'4×8',        done:false,muscles:['lquad','rquad','glutes']},
-        {name:'Romanian Deadlift', sets:'3×10',        done:false,muscles:['lham','rham','glutes']},
-        {name:'Leg Press',         sets:'3×12',        done:false,muscles:['lquad','rquad']},
-        {name:'Leg Curl',          sets:'3×12',        done:false,muscles:['lham','rham']},
-        {name:'Calf Raises',       sets:'4×20',        done:false,muscles:['lcalf','rcalf']},
-        {name:'Lunges',            sets:'3×10 each',   done:false,muscles:['lquad','rquad','glutes']},
+        {name:'Barbell Squat',      sets:'4×6-10 heavy',   done:false,muscles:['lquad','rquad','glutes','lham','rham'],note:'↑↑ #1 HGH in gym — go heavy'},
+        {name:'Romanian Deadlift',  sets:'3×10',           done:false,muscles:['lham','rham','glutes'],note:'Posterior chain + fat burn'},
+        {name:'Leg Press',          sets:'3×12',           done:false,muscles:['lquad','rquad','glutes'],note:'Volume + legs'},
+        {name:'Hip Flexor Stretch', sets:'60 sec each side',done:false,muscles:['loblique','roblique'],note:'Fixes pelvic tilt → free height'},
+        {name:'Calf Raises',        sets:'4×20',           done:false,muscles:['lcalf','rcalf'],note:'Full leg development'},
+        {name:'Dead Hang',          sets:'3×45-60 sec',    done:false,muscles:['traps','llat','rlat'],note:'↑ Spine decompression — daily'},
       ],
-      rest:[]
+      sprint:[
+        {name:'Warm-up Jog',        sets:'5 min easy',     done:false,muscles:['lquad','rquad','lcalf','rcalf'],note:'Prep joints'},
+        {name:'Sprint Intervals',   sets:'6-10 × 30 sec all-out',done:false,muscles:['lquad','rquad','lham','rham','lcalf','rcalf','glutes'],note:'↑↑ HGH spike 500% — rest 90s between'},
+        {name:'Mountain Climbers',  sets:'3×30 sec',       done:false,muscles:['abs1','abs2','abs3','lquad','rquad'],note:'Core + fat burn'},
+        {name:'Jump Squats',        sets:'3×10',           done:false,muscles:['lquad','rquad','glutes','lcalf','rcalf'],note:'Explosive power'},
+        {name:'Dead Hang',          sets:'3×45-60 sec',    done:false,muscles:['traps','llat','rlat'],note:'Spine decompression post-sprint'},
+        {name:'Hip Flexor Stretch', sets:'60 sec each side',done:false,muscles:['loblique','roblique'],note:'Cool down — posture fix'},
+      ],
+      rest:[
+        {name:'Cat-Cow',            sets:'10 slow reps',   done:false,muscles:['abs1','abs2'],note:'Morning — spinal mobility'},
+        {name:'Cobra Stretch',      sets:'3×30 sec',       done:false,muscles:['abs1','abs2','loblique','roblique'],note:'Thoracic decompression'},
+        {name:'Dead Hang',          sets:'3×45-60 sec',    done:false,muscles:['traps','llat','rlat'],note:'Daily — even rest days'},
+        {name:'Wall Angels',        sets:'10 reps',        done:false,muscles:['traps','lshoulder','rshoulder'],note:'Fixes rounded shoulders'},
+        {name:"Child's Pose",      sets:'60 sec',         done:false,muscles:['llat','rlat'],note:'Lower spine decompression'},
+        {name:'Foam Roller — Thoracic',sets:'2 min',       done:false,muscles:['traps','llat','rlat'],note:'Upper back mobility'},
+      ]
     }
   },
   logs:[], calData:{}, trainedMuscles:{},
@@ -899,31 +915,38 @@ function renderHeader(){
 function renderStats(){
   const g=document.getElementById('statsGrid');g.innerHTML='';
   for(const[key,stat]of Object.entries(S.stats)){
-    const pct=Math.min(100,(stat.xp/2000)*100);
-    const el=document.createElement('div');el.className='stat-row';
-    const icon=stat.label.split(' ')[0];const name=stat.label.slice(stat.label.indexOf(' ')+1).toUpperCase();
-    el.innerHTML=`<div class="stat-icon">${icon}</div><div class="stat-info"><div class="stat-name">${name}<span>+${stat.xp} XP</span></div><div class="stat-bar-wrap"><div class="stat-bar-fill ${stat.bar}" style="width:${pct}%"></div></div></div>`;
+    const pts=getStatPoints(stat.xp);
+    const ptsDisp=String(pts);
+    const color=STAT_COLORS[key]||'#c084fc';
+    const short=STAT_SHORT[key]||key.slice(0,3).toUpperCase();
+    const icon=stat.label.split(' ')[0];
+    const pct=Math.min(100,(pts/300)*100);
+    const el=document.createElement('div');el.className='stat-item';
+    el.style.setProperty('--item-color',color);
+    el.innerHTML=`<div><div style="font-size:14px;margin-bottom:3px">${icon}</div><div class="stat-code">${short}</div><div class="stat-bar-mini"><div class="stat-bar-mini-fill" style="width:${pct}%;background:${color}"></div></div></div><div class="stat-pts" style="color:${color};text-shadow:0 0 14px ${color}55">${ptsDisp}</div>`;
     el.onclick=()=>openStatModal(key);
     g.appendChild(el);
   }
 }
 
-// ── STREAK ──
-const DNAMES=['MON','TUE','WED','THU','FRI','SAT','SUN'];
+// ── STREAK (AUTO — no manual checkboxes) ──
+const DAY_LABELS=['SUN','MON','TUE','WED','THU','FRI','SAT'];
 function renderStreak(){
+  document.getElementById('streakCount').textContent=S.dayStreak||0;
+  const done=DAILY_QUESTS.filter(q=>S.questsDone[q.id]).length;
+  document.getElementById('weekDone').textContent=`${done}/6 TODAY`;
   const c=document.getElementById('streakDays');c.innerHTML='';
-  let streak=0;for(let i=S.streakDays.length-1;i>=0;i--){if(S.streakDays[i])streak++;else break;}
-  document.getElementById('streakCount').textContent=streak;
-  const done=S.streakDays.filter(Boolean).length;
-  document.getElementById('weekDone').textContent=`${done}/7 COMPLETE`;
-  const todayJS=new Date().getDay();const todayIdx=todayJS===0?6:todayJS-1;
-  S.streakDays.forEach((d,i)=>{
+  // Show last 7 days auto from calData
+  for(let i=6;i>=0;i--){
+    const d=new Date();d.setDate(d.getDate()-i);
+    const dk=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const count=S.calData[dk]||0;const isToday=i===0;
+    const lbl=DAY_LABELS[d.getDay()];
     const el=document.createElement('div');
-    el.className='day-box'+(d?' done':'')+(i===todayIdx?' today-marker':'');
-    el.innerHTML=`<div class="day-nm">${DNAMES[i]}</div><div class="day-ck">◆</div>`;
-    el.onclick=()=>{S.streakDays[i]=!S.streakDays[i];if(S.streakDays[i])recordCal();save();render();};
+    el.className='day-box'+(count>0?' done':'')+(isToday?' today-marker':'');
+    el.innerHTML=`<div class="day-nm">${lbl}</div><div class="day-ck">◆</div>`;
     c.appendChild(el);
-  });
+  }
 }
 
 // ── CALENDAR ──
@@ -1024,7 +1047,7 @@ function toggleBossQuest(i){
 }
 
 // ── GYM ──
-const WM={push:['chest','lshoulder','rshoulder','ltricep','rtricep'],pull:['llat','rlat','lbicep','rbicep','traps','lforearm','rforearm'],legs:['lquad','rquad','lham','rham','lcalf','rcalf','glutes'],rest:[]};
+const WM={push:['chest','lshoulder','rshoulder','ltricep','rtricep'],pull:['llat','rlat','lbicep','rbicep','traps','lforearm','rforearm'],legs:['lquad','rquad','lham','rham','lcalf','rcalf','glutes'],sprint:['lquad','rquad','lham','rham','lcalf','rcalf','glutes'],rest:['traps','llat','rlat']};
 function setWorkout(type,btn){
   document.querySelectorAll('.wtype-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');S.gym.type=type;
@@ -1037,7 +1060,7 @@ function renderGym(){
   if(type==='rest'){list.innerHTML='<div class="empty-state">REST DAY<br><span style="font-size:11px">Recovery is part of the grind.</span></div>';clearMuscles();return;}
   exs.forEach((ex,i)=>{
     const el=document.createElement('div');el.className='ex-item'+(ex.done?' done':'');
-    el.innerHTML=`<div class="ex-check">${ex.done?'✓':''}</div><div><div class="ex-name">${ex.name}</div><div class="ex-meta">${ex.sets}</div></div>`;
+    el.innerHTML=`<div class="ex-check">${ex.done?'✓':''}</div><div><div class="ex-name">${ex.name}</div><div class="ex-meta">${ex.sets}</div>${ex.note?`<div style="font-size:9px;color:var(--cyan);opacity:0.7;margin-top:1px;font-family:'Share Tech Mono',monospace">${ex.note}</div>`:''}</div>`;
     el.onclick=()=>toggleEx(i);list.appendChild(el);
   });
   updateMuscleMap(exs);
@@ -1222,7 +1245,7 @@ function importData(e){
 function openStatModal(key){
   const stat=S.stats[key];
   document.getElementById('modalTitle').textContent=stat.label;
-  document.getElementById('modalXp').textContent=`+${stat.xp} XP TOTAL`;
+  const short=STAT_SHORT[key]||key.toUpperCase();const pts=getStatPoints(stat.xp);document.getElementById('modalXp').textContent=`${short}: ${String(pts).padStart(3,'0')} POINTS (+${stat.xp} XP accumulated)`;
   const list=document.getElementById('modalActivities');list.innerHTML='';
   if(!stat.activities.length){list.innerHTML='<div class="empty-state">No activity yet.</div>';return;}
   stat.activities.slice().reverse().forEach(a=>{const el=document.createElement('div');el.className='activity-item';el.innerHTML=`<div><div class="activity-name">${a.name}</div><div class="activity-date">${a.date}</div></div><div class="activity-xp">+${a.xp} XP</div>`;list.appendChild(el);});
